@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Helpers\Utilities;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Cookie;
 
 abstract class Controller extends BaseController
 {
@@ -40,6 +42,7 @@ abstract class Controller extends BaseController
 
     public function __construct()
     {
-
+        $this->token = Cookie::get('token');
+        $this->user_token = Utilities::getCookie('user_token');
     }
 }

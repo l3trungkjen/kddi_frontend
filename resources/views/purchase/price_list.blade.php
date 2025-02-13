@@ -32,12 +32,13 @@
     </p>
     <div class="maker">
         <h3>メーカーから探す</h3>
-        <select id="selectBox" onchange="showContent()">
+        <select id="selectBox" onchange="showContent({{ $purchaseId }})">
             <option value="" selected="" disabled>メーカーを選択</option>
-            <option value="Apple（iPad）">Apple（iPad）</option>
-            <option value="Apple（iPhone）">Apple（iPhone）</option>
-            <option value="Apple（Watch）">Apple（Watch）</option>
-            <option value="Essential">Essential</option>
+            <option value="iPhone">Apple（iPhone）</option>
+            <option value="iPad">Apple（iPad）</option>
+            <option value="Android smartphones/tablets">Android smartphones/tablets</option>
+            <option value="4G LTE mobile phone">4G LTE mobile phone</option>
+            {{-- <option value="Essential">Essential</option>
             <option value="FCNT">FCNT</option>
             <option value="Google">Google</option>
             <option value="HTC">HTC</option>
@@ -53,224 +54,49 @@
             <option value="SHARP">SHARP</option>
             <option value="SONY">SONY</option>
             <option value="Xiaomi">Xiaomi</option>
-            <option value="ZTE">ZTE</option>
+            <option value="ZTE">ZTE</option> --}}
         </select>
     </div>
     <div class="pricelist">
-      <div id="Apple（iPad）" class="content" style="display:none;">
-        <table>
-            <thead>
-                <tr>
-                    <th rowspan="2" class="prod">製品</th>
-                    <th rowspan="2" class="vol">容量</th>
-                    <th colspan="4">下取り価格目安<br><span>（ランク基準は<a href="" data-toggle="modal"
-                                data-target="#modal1">こちら</a>）</span></th>
-                </tr>
-                <tr>
-                    <th class="rank">A</th>
-                    <th class="rank">B</th>
-                    <th class="rank">C</th>
-                    <th class="rank">J</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>iPad Air（第3世代）10.5インチ</td>
-                    <td>256GB</td>
-                    <td class="price">32,800 円</td>
-                    <td class="price">13,900 円</td>
-                    <td class="price">13,900 円</td>
-                    <td class="price">900 円</td>
-                </tr>
-                <tr>
-                    <td>iPad Air（第3世代）10.5インチ</td>
-                    <td>128GB</td>
-                    <td class="price">28,900 円</td>
-                    <td class="price">12,000 円</td>
-                    <td class="price">12,000 円</td>
-                    <td class="price">900 円</td>
-                </tr>
-                <tr>
-                    <td>iPad Air（第3世代）10.5インチ</td>
-                    <td>64GB</td>
-                    <td class="price">25,500 円</td>
-                    <td class="price">10,200 円</td>
-                    <td class="price">10,200 円</td>
-                    <td class="price">900 円</td>
-                </tr>
-                <tr>
-                    <td>iPhone 12 mini</td>
-                    <td>256GB</td>
-                    <td class="price">32,800 円</td>
-                    <td class="price">13,900 円</td>
-                    <td class="price">13,900 円</td>
-                    <td class="price">900 円</td>
-                </tr>
-                <tr>
-                    <td>iPhone 12 mini</td>
-                    <td>128GB</td>
-                    <td class="price">28,900 円</td>
-                    <td class="price">12,000 円</td>
-                    <td class="price">12,000 円</td>
-                    <td class="price">900 円</td>
-                </tr>
-                <tr>
-                    <td>iPhone 12 mini</td>
-                    <td>64GB</td>
-                    <td class="price">25,500 円</td>
-                    <td class="price">10,200 円</td>
-                    <td class="price">10,200 円</td>
-                    <td class="price">900 円</td>
-                </tr>
-                <tr>
-                    <td>iPhone 12 Pro Max</td>
-                    <td>256GB</td>
-                    <td class="price">32,800 円</td>
-                    <td class="price">13,900 円</td>
-                    <td class="price">13,900 円</td>
-                    <td class="price">900 円</td>
-                </tr>
-                <tr>
-                    <td>iPhone 12 Pro Max</td>
-                    <td>128GB</td>
-                    <td class="price">28,900 円</td>
-                    <td class="price">12,000 円</td>
-                    <td class="price">12,000 円</td>
-                    <td class="price">900 円</td>
-                </tr>
-                <tr>
-                    <td>iPhone 12 Pro Max</td>
-                    <td>64GB</td>
-                    <td class="price">25,500 円</td>
-                    <td class="price">10,200 円</td>
-                    <td class="price">10,200 円</td>
-                    <td class="price">900 円</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
-                    <th rowspan="2" class="prod">製品</th>
-                    <th rowspan="2" class="vol">容量</th>
-                    <th class="rank">A</th>
-                    <th class="rank">B</th>
-                    <th class="rank">C</th>
-                    <th class="rank">J</th>
-                </tr>
-                <tr>
-                    <th colspan="4">下取り価格目安<br><span>（ランク基準は<a href="" data-toggle="modal"
-                                data-target="#modal1">こちら</a>）</span></th>
-                </tr>
-            </thead>
-        </table>
-      </div>
+        <div id="category_list" class="content" style="display:none;">
+            <table id="table_categories">
+                <thead>
+                    <tr>
+                        <th rowspan="2" class="prod">製品</th>
+                        <th rowspan="2" class="vol">容量</th>
+                        <th colspan="4">下取り価格目安<br><span>（ランク基準は<a href="" data-toggle="modal" data-target="#modal1">こちら</a>）</span></th>
+                    </tr>
+                    <tr>
+                        <th class="rank">A</th>
+                        <th class="rank">B</th>
+                        <th class="rank">C</th>
+                        <th class="rank">J</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-      <div id="Apple（iPhone）" class="content" style="display:none;">
-        <table>
-          <thead>
-            <tr>
-                <th rowspan="2" class="prod">製品</th>
-                <th rowspan="2" class="vol">容量</th>
-                <th colspan="4">下取り価格目安<br><span>（ランク基準は<a href="" data-toggle="modal"
-                            data-target="#modal1">こちら</a>）</span></th>
-            </tr>
-            <tr>
-                <th class="rank">A</th>
-                <th class="rank">B</th>
-                <th class="rank">C</th>
-                <th class="rank">J</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-                <td>iPhone 12</td>
-                <td>256GB</td>
-                <td class="price">32,800 円</td>
-                <td class="price">13,900 円</td>
-                <td class="price">13,900 円</td>
-                <td class="price">900 円</td>
-            </tr>
-            <tr>
-                <td>iPhone 12</td>
-                <td>128GB</td>
-                <td class="price">28,900 円</td>
-                <td class="price">12,000 円</td>
-                <td class="price">12,000 円</td>
-                <td class="price">900 円</td>
-            </tr>
-            <tr>
-                <td>iPhone 12</td>
-                <td>64GB</td>
-                <td class="price">25,500 円</td>
-                <td class="price">10,200 円</td>
-                <td class="price">10,200 円</td>
-                <td class="price">900 円</td>
-            </tr>
-            <tr>
-                <td>iPhone 12 mini</td>
-                <td>256GB</td>
-                <td class="price">32,800 円</td>
-                <td class="price">13,900 円</td>
-                <td class="price">13,900 円</td>
-                <td class="price">900 円</td>
-            </tr>
-            <tr>
-                <td>iPhone 12 mini</td>
-                <td>128GB</td>
-                <td class="price">28,900 円</td>
-                <td class="price">12,000 円</td>
-                <td class="price">12,000 円</td>
-                <td class="price">900 円</td>
-            </tr>
-            <tr>
-                <td>iPhone 12 mini</td>
-                <td>64GB</td>
-                <td class="price">25,500 円</td>
-                <td class="price">10,200 円</td>
-                <td class="price">10,200 円</td>
-                <td class="price">900 円</td>
-            </tr>
-            <tr>
-                <td>iPhone 12 Pro Max</td>
-                <td>256GB</td>
-                <td class="price">32,800 円</td>
-                <td class="price">13,900 円</td>
-                <td class="price">13,900 円</td>
-                <td class="price">900 円</td>
-            </tr>
-            <tr>
-                <td>iPhone 12 Pro Max</td>
-                <td>128GB</td>
-                <td class="price">28,900 円</td>
-                <td class="price">12,000 円</td>
-                <td class="price">12,000 円</td>
-                <td class="price">900 円</td>
-            </tr>
-            <tr>
-                <td>iPhone 12 Pro Max</td>
-                <td>64GB</td>
-                <td class="price">25,500 円</td>
-                <td class="price">10,200 円</td>
-                <td class="price">10,200 円</td>
-                <td class="price">900 円</td>
-            </tr>
-          </tbody>
-          <thead>
-            <tr>
-                <th rowspan="2" class="prod">製品</th>
-                <th rowspan="2" class="vol">容量</th>
-                <th class="rank">A</th>
-                <th class="rank">B</th>
-                <th class="rank">C</th>
-                <th class="rank">J</th>
-            </tr>
-            <tr>
-                <th colspan="4">下取り価格目安<br><span>（ランク基準は<a href="" data-toggle="modal"
-                            data-target="#modal1">こちら</a>）</span></th>
-            </tr>
-          </thead>
-        </table>
-      </div>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th rowspan="2" class="prod">製品</th>
+                        <th rowspan="2" class="vol">容量</th>
+                        <th class="rank">A</th>
+                        <th class="rank">B</th>
+                        <th class="rank">C</th>
+                        <th class="rank">J</th>
+                    </tr>
+                    <tr>
+                        <th colspan="4">下取り価格目安<br><span>（ランク基準は<a href="" data-toggle="modal"
+                                    data-target="#modal1">こちら</a>）</span></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
     </div>
     <a href="/purchase/step-one" class="button submit-button">買取申込はこちら</a>
   </main>
+@endsection
+
+@section('script')
+    <script src="{{ asset('js/maker.js') }}"></script>
 @endsection

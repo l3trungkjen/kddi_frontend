@@ -2,18 +2,18 @@
 
 @section('breadcrumb')
   <ul class="breadcrumb">
-    <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-    <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li>
-    <li class="breadcrumb-item"><a href="02_base.html">TOP</a></li>
+    <li class="breadcrumb-item"><a href="/" target="_blank">ホーム</a></li>
+    <li class="breadcrumb-item"><a href="/login">KDDIデモ機買取施策</a></li>
+    <li class="breadcrumb-item"><a href="/">TOP</a></li>
     <li class="breadcrumb-item">お客様情報登録の流れ</li>
   </ul>
 @endsection
 
 @section('breadcrumb2')
   <ul class="breadcrumb">
-    <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-    <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li>
-    <li class="breadcrumb-item"><a href="02_base.html">TOP</a></li>
+    <li class="breadcrumb-item"><a href="/" target="_blank">ホーム</a></li>
+    <li class="breadcrumb-item"><a href="/login">KDDIデモ機買取施策</a></li>
+    <li class="breadcrumb-item"><a href="/">TOP</a></li>
     <li class="breadcrumb-item">お客様情報登録の流れ</li>
   </ul>
 @endsection
@@ -21,7 +21,7 @@
 @section('content')
   <main>
     <h1 class="heading-level-1">お客様情報登録の流れ</h1>
-    <a href="06_entry.html" class="button submit-button">初回登録はこちら</a>
+    <a href="/entry/step-one" class="button submit-button">初回登録はこちら</a>
     <div class="flow">
       <h2 class="tl">必要情報のご入力、お申込み</h2>
       <div class="flow_ph">

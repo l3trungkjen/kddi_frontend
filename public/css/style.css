@@ -1421,7 +1421,7 @@ width: 100%;
 margin-top: 10px;
 }
 .entry-input_m {
-width: 75%;
+width: 73%;
 margin-top: 10px;
 }
 .entry-input_s {
@@ -1576,4 +1576,18 @@ width: 25%;
   top: 0;
   left: 0;
   border-top: none;
+}
+
+form button {
+  cursor: pointer;
+  border: none;
+}
+form .error {
+  color: #ff0000;
+  margin-top: 5px;
+}
+
+#agree_terms-error {
+  position: absolute;
+  margin-top: 35px;
 }

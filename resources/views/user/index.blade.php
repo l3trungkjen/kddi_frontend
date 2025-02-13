@@ -15,9 +15,9 @@
       <ul>
         <li><a href="/purchase/flow" class="arrowMenu">買取申込の流れ</a></li>
         <li><a href="/purchase/price-list" class="arrowMenu">買取価格</a></li>
-        <li><a href="/entry" class="arrowMenu">お客様情報変更</a></li>
+        <li><a href="/entry/edit" class="arrowMenu">お客様情報変更</a></li>
       </ul>
     </div>
-    <a href="/purchase" class="button submit-button">買取申込はこちら</a>
+    <a href="/purchase/step-one" class="button submit-button">買取申込はこちら</a>
   </main>
 @endsection

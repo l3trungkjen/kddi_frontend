@@ -22,7 +22,7 @@
     <main>
         <h1 class="heading-level-1">買取申込の流れ</h1>
 
-        <a href="/purchase" class="button submit-button">買取申込はこちら</a>
+        <a href="/purchase/step-one" class="button submit-button">買取申込はこちら</a>
 
 
         <div class="flow">
@@ -31,7 +31,7 @@
             <div class="flow_ph">
               <img src="{{ asset('images/flow01.jpg') }}">
             </div>
-            <p><a href="/purchase">端末買取専用のお申込みフォーム</a>に必要情報を入力し、お申込みください。必要な情報を送信いただくと、受付完了メールをお送りいたします。</p>
+            <p><a href="/purchase/step-one">端末買取専用のお申込みフォーム</a>に必要情報を入力し、お申込みください。必要な情報を送信いただくと、受付完了メールをお送りいたします。</p>
 
             <div class="flow_arrow"><img src="{{ asset('images/arrow_bottom.png') }}"></div>
 
@@ -143,7 +143,7 @@
             </div>
         </div>
 
-        <a href="/purchase" class="button submit-button">買取申込はこちら</a>
+        <a href="/purchase/step-one" class="button submit-button">買取申込はこちら</a>
 
 
         <div class="corp">
