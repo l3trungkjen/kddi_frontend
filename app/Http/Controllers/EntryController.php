@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Repositories\Entries\EntryRepository;
 use App\Repositories\Kintone\KintoneRepository;
+use App\Repositories\SendGrid\SendGridRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
@@ -135,8 +136,9 @@ class EntryController extends Controller
             ];
             $kintone = new KintoneRepository($this->appId);
             $entry = $kintone->addRecord($data);
-            // dd($entry);
             if (isset($entry['id'])) {
+                $sendGird = new SendGridRepository();
+                $sendMail = $sendGird->send($request->email, $request->email, "お客様情報登録完了", 'register_customer');
                 return redirect()->route('entry.stepThree');
             } else {
                 session()->flash('step_one_data', $request->all());
@@ -192,7 +194,8 @@ class EntryController extends Controller
             $kintone = new KintoneRepository($this->appId);
             $data = $kintone->getRecord($query);
             if (isset($data['records']) && count($data['records']) > 0) {
-                $this->member = $data['records'][0];                $data = session('step_one_data');
+                $this->member = $data['records'][0];
+                $data = session('step_one_data');
                 $this->entry = $entry = isset($data) ? (object) $data : null;
                 if (!$entry) {
                     return redirect()->route('entry.editStepOne');
@@ -244,7 +247,7 @@ class EntryController extends Controller
             ];
             $kintone = new KintoneRepository($this->appId);
             $entry = $kintone->updateRecord($id, $data);
-            // dd($entry);
+
             if (isset($entry['revision'])) {
                 return redirect()->route('entry.editStepThree');
             } else {

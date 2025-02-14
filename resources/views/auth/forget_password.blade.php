@@ -15,15 +15,25 @@
     <div class="guidebox">
       <p>パスワードの確認を行います</p>
     </div>
-    <form method="POST">
-      <input type="hidden" name="token" value="xxxxxxxxxxxxxxxxxx">
+    <form method="POST" action="/auth/forget-password-submit">
+      @csrf
       <div class="login-box">
-        <p class="login-lead">
-        パスワードの確認を行いたいメールアドレスを入力してください。</p>
-        <input type="text" name="id" class="login-input" placeholder="your@email.com">
+        <p class="login-lead">パスワードの確認を行いたいメールアドレスを入力してください。</p>
+        @if ($errors->has('message_error'))
+          <div class="error">
+              {{ $errors->first('message_error') }}
+          </div>
+        @endif
+        @if ($errors->has('message_success'))
+          <div class="success">
+              {{ $errors->first('message_success') }}
+          </div>
+        @endif
+        <input type="text" name="email" class="login-input" placeholder="your@email.com">
         <p class="notice">※ご入力のメールアドレスにパスワードをお送りします。</p>
       </div>
-      <a href="javascript:void(0);" class="button submit-button">送信</a>
+      {{-- <a href="javascript:void(0);" class="button submit-button">送信</a> --}}
+      <button class="button submit-button">送信</button>
     </form>
   </main>
 @endsection

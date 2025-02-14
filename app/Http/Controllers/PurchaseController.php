@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\Kintone\KintoneRepository;
+use App\Repositories\SendGrid\SendGridRepository;
 use Exception;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -119,6 +120,8 @@ class PurchaseController extends Controller
             $kintone = new KintoneRepository($this->appId);
             $purchase = $kintone->addRecord($data);
             if (isset($purchase['id'])) {
+                $sendGird = new SendGridRepository();
+                $sendMail = $sendGird->send($request->email, $request->email, "買取申込完了", 'register_purchase_success');
                 return redirect()->route('purchase.stepThree');
             } else {
                 session()->flash('step_one_data', $request->all());

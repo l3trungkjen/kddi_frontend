@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\Kintone\KintoneRepository;
+use App\Repositories\SendGrid\SendGridRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Carbon\Carbon;
@@ -44,6 +45,19 @@ class AuthController extends Controller
     public function forgetPassword(Request $request)
     {
         return view('auth.forget_password', $this->data);
+    }
+
+    public function forgetPasswordSubmit(Request $request)
+    {
+        $sendGird = new SendGridRepository();
+        $sendMail = $sendGird->send($request->email, $request->email, "パスワードをお忘れの方", 'forgot_password');
+        if ($sendMail == 202 || $sendMail == 200) {
+            return redirect()->back()
+                ->withErrors(['message_success' => 'メールは正常に送信されました。']);
+        } else {
+            return redirect()->back()
+                ->withErrors(['message_error' => 'メールの送信に失敗しました。']);
+        }
     }
 
     // 04_base.html
