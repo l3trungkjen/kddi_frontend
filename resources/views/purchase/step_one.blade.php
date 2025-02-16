@@ -2,18 +2,18 @@
 
 @section('breadcrumb')
     <ul class="breadcrumb">
-        <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-        <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li>
-        <li class="breadcrumb-item"><a href="04_base.html">個別TOP</a></li>
+        <li class="breadcrumb-item"><a href="/" target="_blank">ホーム</a></li>
+        <li class="breadcrumb-item"><a href="/login">KDDIデモ機買取施策</a></li>
+        <li class="breadcrumb-item"><a href="/auth/user">個別TOP</a></li>
         <li class="breadcrumb-item">買取お申込み</li>
     </ul>
 @endsection
 
 @section('breadcrumb2')
     <ul class="breadcrumb">
-        <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-        <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li>
-        <li class="breadcrumb-item"><a href="04_base.html">個別TOP</a></li>
+        <li class="breadcrumb-item"><a href="/" target="_blank">ホーム</a></li>
+        <li class="breadcrumb-item"><a href="/login">KDDIデモ機買取施策</a></li>
+        <li class="breadcrumb-item"><a href="/auth/user">個別TOP</a></li>
         <li class="breadcrumb-item">買取お申込み</li>
     </ul>
 @endsection
@@ -23,7 +23,7 @@
         <h1 class="heading-level-1">買取お申込み</h1>
 
         <div class="">
-            <img src="{{ asset('images/step01.png') }}">
+            <img src="{{ secure_asset('images/step01.png') }}">
         </div>
         <form method="POST" id="purchase_step_one" action="/purchase/step-one-submit">
             @csrf

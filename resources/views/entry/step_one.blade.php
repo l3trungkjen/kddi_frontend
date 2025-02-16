@@ -22,7 +22,7 @@
   <main>
     <h1 class="heading-level-1">お客様情報登録</h1>
     <div class="">
-        <img src="{{ asset('images/step01.png') }}">
+        <img src="{{ secure_asset('images/step01.png') }}">
     </div>
     <form method="POST" id="entry_step_one" action="/entry/step-one-submit2">
       @csrf

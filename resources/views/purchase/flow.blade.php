@@ -2,18 +2,18 @@
 
 @section('breadcrumb')
     <ul class="breadcrumb">
-        <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-        <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li>
-        <li class="breadcrumb-item"><a href="02_base.html">TOP</a></li>
+        <li class="breadcrumb-item"><a href="/" target="_blank">ホーム</a></li>
+        <li class="breadcrumb-item"><a href="/login">KDDIデモ機買取施策</a></li>
+        <li class="breadcrumb-item"><a href="/">TOP</a></li>
         <li class="breadcrumb-item">買取申込の流れ</li>
     </ul>
 @endsection
 
 @section('breadcrumb2')
     <ul class="breadcrumb">
-        <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-        <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li>
-        <li class="breadcrumb-item"><a href="02_base.html">TOP</a></li>
+        <li class="breadcrumb-item"><a href="/" target="_blank">ホーム</a></li>
+        <li class="breadcrumb-item"><a href="/login">KDDIデモ機買取施策</a></li>
+        <li class="breadcrumb-item"><a href="/">TOP</a></li>
         <li class="breadcrumb-item">買取申込の流れ</li>
     </ul>
 @endsection
@@ -29,32 +29,32 @@
 
             <h2 class="tl">必要情報のご入力、お申込み</h2>
             <div class="flow_ph">
-              <img src="{{ asset('images/flow01.jpg') }}">
+              <img src="{{ secure_asset('images/flow01.jpg') }}">
             </div>
             <p><a href="/purchase/step-one">端末買取専用のお申込みフォーム</a>に必要情報を入力し、お申込みください。必要な情報を送信いただくと、受付完了メールをお送りいたします。</p>
 
-            <div class="flow_arrow"><img src="{{ asset('images/arrow_bottom.png') }}"></div>
+            <div class="flow_arrow"><img src="{{ secure_asset('images/arrow_bottom.png') }}"></div>
 
             <h2 class="tl">買取キットの受取り</h2>
-            <div class="flow_ph"><img src="{{ asset('images/none.png') }}"></div>
+            <div class="flow_ph"><img src="{{ secure_asset('images/none.png') }}"></div>
             <p>お売りいただく端末を発送するための、買取キット一式をお客様宛てに送付いたします。<br>
                 買取キット発送先に複数をご指定いただいた場合は、ご通知いただいた各発送先にお送りいたします。</p>
 
             <div class="flow_waku1">
                 <h3>買取キット 内容</h3>
                 <p>鍵付発送箱／送付明細書／着払い伝票
-                    <img src="{{ asset('images/flow03.jpg') }}">
+                    <img src="{{ secure_asset('images/flow03.jpg') }}">
                     <br>
-                    <img src="{{ asset('images/flow04.jpg') }}">
+                    <img src="{{ secure_asset('images/flow04.jpg') }}">
                     <br>
-                    <img src="{{ asset('images/flow05.jpg') }}">
+                    <img src="{{ secure_asset('images/flow05.jpg') }}">
                 </p>
             </div>
 
-            <div class="flow_arrow"><img src="{{ asset('images/arrow_bottom.jpg') }}"></div>
+            <div class="flow_arrow"><img src="{{ secure_asset('images/arrow_bottom.jpg') }}"></div>
 
             <h2 class="tl">データ初期化</h2>
-            <div class="flow_ph"><img src="{{ asset('images/flow06.jpg') }}"></div>
+            <div class="flow_ph"><img src="{{ secure_asset('images/flow06.jpg') }}"></div>
             <p>お売りいただく端末の初期化など、発送準備をお願いいたします。</p>
 
             <div class="flow_waku3">
@@ -91,10 +91,10 @@
                 </dl>
             </div>
 
-            <div class="flow_arrow"><img src="{{ asset('images/arrow_bottom.png') }}"></div>
+            <div class="flow_arrow"><img src="{{ secure_asset('images/arrow_bottom.png') }}"></div>
 
             <h2 class="tl">買取キットへ梱包・発送</h2>
-            <div class="flow_ph"><img src="{{ asset('images/none.png') }}"></div>
+            <div class="flow_ph"><img src="{{ secure_asset('images/none.png') }}"></div>
             <p>買取キットにお売りいただく携帯端末、送付明細票を同梱してください。
                 梱包方法、送付明細票のご記入については、<a href="" target="_blank">「発送手順詳細」</a>をご覧ください。<br>
                 梱包が完了しましたら、日本郵便に集荷依頼し、発送をお願いいたします。</p>
@@ -112,30 +112,30 @@
                 </div>
             </div>
 
-            <div class="flow_arrow"><img src="{{ asset('images/arrow_bottom.png') }}"></div>
+            <div class="flow_arrow"><img src="{{ secure_asset('images/arrow_bottom.png') }}"></div>
 
             <h2 class="tl">見積り結果の受領・承諾</h2>
-            <div class="flow_ph"><img src="{{ asset('images/none.png') }}"></div>
+            <div class="flow_ph"><img src="{{ secure_asset('images/none.png') }}"></div>
             <p>お売りいただく全ての端末が到着しましたら、受け取り確認・台数確認のメールをお送りいたします。<br>
                 お申込いただいた内容とお送りいただいた端末の確認が取れましたら、弊社で査定し、見積り結果メールをお送りいたします。<br><br>
                 ※お申込みいただいた台数と到着台数に相違があるなど、お申込み内容との相違がある場合には別途ご連絡いたします。<br><br>
                 お見積りをご確認いただき、ご承諾いただけましたら、メールにてご承諾のご連絡をお願いいたします。</p>
 
-            <div class="flow_arrow"><img src="{{ asset('images/arrow_bottom.png') }}"></div>
+            <div class="flow_arrow"><img src="{{ secure_asset('images/arrow_bottom.png') }}"></div>
 
             <h2 class="tl">データ消去作業完了証明書の受取</h2>
-            <div class="flow_ph"><img src="{{ asset('images/none.png') }}"></div>
+            <div class="flow_ph"><img src="{{ secure_asset('images/none.png') }}"></div>
             <p>データ消去が完了次第、データ消去作業完了証明書をメールにてお送りいたします。</p>
 
-            <div class="flow_arrow"><img src="{{ asset('images/arrow_bottom.png') }}"></div>
+            <div class="flow_arrow"><img src="{{ secure_asset('images/arrow_bottom.png') }}"></div>
 
 
             <h2 class="tl">破砕処理作業完了証明書の受取<br>（リサイクル端末のみ）</h2>
-            <div class="flow_ph"><img src="{{ asset('images/none.png') }}"></div>
+            <div class="flow_ph"><img src="{{ secure_asset('images/none.png') }}"></div>
             <p>リサイクルを行う端末は破砕し、破砕処理作業完了証明書をメールにてお送りします。<br><br>
                 ※破砕処理作業完了証明書をお送りするまで、数ヶ月ほどお時間をいただきます。ご了承をお願いいたします。</p>
 
-            <div class="flow_arrow"><img src="{{ asset('images/arrow_bottom.png') }}"></div>
+            <div class="flow_arrow"><img src="{{ secure_asset('images/arrow_bottom.png') }}"></div>
 
             <div class="fin">
                 <p>お売りいただきました端末は<br>国内外で再活用（リユース）や、<br>

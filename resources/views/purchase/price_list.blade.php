@@ -2,18 +2,18 @@
 
 @section('breadcrumb')
   <ul class="breadcrumb">
-    <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-    <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li>
-    <li class="breadcrumb-item"><a href="04_base.html">個別TOP</a></li>
+    <li class="breadcrumb-item"><a href="/" target="_blank">ホーム</a></li>
+    <li class="breadcrumb-item"><a href="/login">KDDIデモ機買取施策</a></li>
+    <li class="breadcrumb-item"><a href="/">個別TOP</a></li>
     <li class="breadcrumb-item">買取価格</li>
   </ul>
 @endsection
 
 @section('breadcrumb2')
   <ul class="breadcrumb">
-    <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-    <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li>
-    <li class="breadcrumb-item"><a href="04_base.html">個別TOP</a></li>
+    <li class="breadcrumb-item"><a href="/" target="_blank">ホーム</a></li>
+    <li class="breadcrumb-item"><a href="/login">KDDIデモ機買取施策</a></li>
+    <li class="breadcrumb-item"><a href="/">個別TOP</a></li>
     <li class="breadcrumb-item">買取価格</li>
   </ul>
 @endsection
@@ -98,5 +98,5 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('js/maker.js') }}"></script>
+    <script src="{{ secure_asset('js/maker.js') }}"></script>
 @endsection

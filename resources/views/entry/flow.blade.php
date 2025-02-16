@@ -25,15 +25,15 @@
     <div class="flow">
       <h2 class="tl">必要情報のご入力、お申込み</h2>
       <div class="flow_ph">
-        <img src="{{ asset('images/flow01.jpg') }}">
+        <img src="{{ secure_asset('images/flow01.jpg') }}">
       </div>
       <p><a href="06_entry.html">お申込みフォーム</a>に必要情報を入力し、お申込みください。必要な情報を送信いただくと、受付完了メールをお送りいたします。</p>
       <div class="flow_arrow">
-        <img src="{{ asset('images/arrow_bottom.png') }}">
+        <img src="{{ secure_asset('images/arrow_bottom.png') }}">
       </div>
       <h2 class="tl">本人限定受取郵便にて<br>買取申込受付票の受領</h2>
       <div class="flow_ph">
-        <img src="{{ asset('images/flow02.jpg') }}">
+        <img src="{{ secure_asset('images/flow02.jpg') }}">
       </div>
       <p>法人情報欄にご入力いただいた会社住所宛に、「買取申込受付票」を<span class="attention">本人限定受取郵便にてお送りいたします。</span><br>
           本人限定受取郵便が郵便局に届いたことを通知する、案内はがきが届きます。<br>
@@ -47,11 +47,11 @@
         </p>
       </div>
       <div class="flow_arrow">
-        <img src="{{ asset('images/arrow_bottom.png') }}">
+        <img src="{{ secure_asset('images/arrow_bottom.png') }}">
       </div>
       <h2 class="tl">買取申込受付票のご記入・ご返送</h2>
       <div class="flow_ph">
-        <img src="{{ asset('images/none.png') }}">
+        <img src="{{ secure_asset('images/none.png') }}">
       </div>
       <p>買取申込受付票に必要事項をご記入いただき、ご担当者様の本人確認書類とともに、下記あて先までメールにてお送りください。</p>
       <div class="flow_waku1">
@@ -66,7 +66,7 @@
         <p><span class="attention">ご担当者様の名刺または社員証のPDFをご用意ください</span></p>
       </div>
       <div class="flow_arrow">
-        <img src="{{ asset('images/arrow_bottom.png') }}">
+        <img src="{{ secure_asset('images/arrow_bottom.png') }}">
       </div>
       <div class="fin">
         <p>お客様登録完了になります</p>

@@ -2,18 +2,18 @@
 
 @section('breadcrumb')
   <ul class="breadcrumb">
-    <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-    <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li>
-    <li class="breadcrumb-item"><a href="02_base.html">TOP</a></li>
+    <li class="breadcrumb-item"><a href="/" target="_blank">ホーム</a></li>
+    <li class="breadcrumb-item"><a href="/login">KDDIデモ機買取施策</a></li>
+    <li class="breadcrumb-item"><a href="/">TOP</a></li>
     <li class="breadcrumb-item">お客様情報登録：入力内容の確認</li>
   </ul>
 @endsection
 
 @section('breadcrumb2')
   <ul class="breadcrumb">
-    <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-    <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li>
-    <li class="breadcrumb-item"><a href="02_base.html">TOP</a></li>
+    <li class="breadcrumb-item"><a href="/" target="_blank">ホーム</a></li>
+    <li class="breadcrumb-item"><a href="/login">KDDIデモ機買取施策</a></li>
+    <li class="breadcrumb-item"><a href="/">TOP</a></li>
     <li class="breadcrumb-item">お客様情報登録：入力内容の確認</li>
   </ul>
 @endsection
@@ -22,7 +22,7 @@
   <main>
     <h1 class="heading-level-1">お客様情報登録</h1>
     <div class="">
-      <img src="{{ asset('images/step02.png') }}">
+      <img src="{{ secure_asset('images/step02.png') }}">
     </div>
     <form method="POST" id="entry_step_two" action="/entry/step-two-submit">
       @csrf
