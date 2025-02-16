@@ -2,18 +2,18 @@
 
 @section('breadcrumb')
   <ul class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/" target="_blank">ホーム</a></li>
-    <li class="breadcrumb-item"><a href="/login">KDDIデモ機買取施策</a></li>
-    <li class="breadcrumb-item"><a href="/">TOP</a></li>
+    <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
+    {{-- <li class="breadcrumb-item"><a href="/login">KDDIデモ機買取施策</a></li> --}}
+    <li class="breadcrumb-item"><a href="/base">TOP</a></li>
     <li class="breadcrumb-item">お客様情報登録</li>
   </ul>
 @endsection
 
 @section('breadcrumb2')
   <ul class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/" target="_blank">ホーム</a></li>
-    <li class="breadcrumb-item"><a href="/login">KDDIご紹介者様ページ</a></li>
-    <li class="breadcrumb-item"><a href="/">基本ページ</a></li>
+    <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
+    {{-- <li class="breadcrumb-item"><a href="/login">KDDIご紹介者様ページ</a></li> --}}
+    <li class="breadcrumb-item"><a href="/base">TOP</a></li>
     <li class="breadcrumb-item">お客様情報登録変更</li>
   </ul>
 @endsection
@@ -366,6 +366,29 @@
         submitHandler: function (form) {
           form.submit();
         },
+      });
+
+      $('#post_code').on('keydown', function(e) {
+        if (e.which === 9) {
+          var zipcode = $(this).val().trim();
+          if(zipcode !== '') {
+            $.ajax({
+              url: 'https://zipcloud.ibsnet.co.jp/api/search',
+              type: 'GET',
+              data: { zipcode: zipcode },
+              dataType: 'json',
+              success: function(response) {
+                $('#prefectures').val(response.results[0].address1);
+                $('#municipalities').val(response.results[0].address2);
+                $('#street').val(response.results[0].address3);
+                $('#street').focus();
+              },
+              error: function(xhr, status, error) {
+                console.error('Error:', error);
+              }
+            });
+          }
+        }
       });
     });
   </script>

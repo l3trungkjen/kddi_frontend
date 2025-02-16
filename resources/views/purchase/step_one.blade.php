@@ -3,8 +3,8 @@
 @section('breadcrumb')
     <ul class="breadcrumb">
         <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-        <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li>
-        <li class="breadcrumb-item"><a href="04_base.html">個別TOP</a></li>
+        {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li> --}}
+        <li class="breadcrumb-item"><a href="/base">個別TOP</a></li>
         <li class="breadcrumb-item">買取お申込み</li>
     </ul>
 @endsection
@@ -12,8 +12,8 @@
 @section('breadcrumb2')
     <ul class="breadcrumb">
         <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-        <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li>
-        <li class="breadcrumb-item"><a href="04_base.html">個別TOP</a></li>
+        {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li> --}}
+        <li class="breadcrumb-item"><a href="/base">個別TOP</a></li>
         <li class="breadcrumb-item">買取お申込み</li>
     </ul>
 @endsection
@@ -256,6 +256,29 @@
                 $('#infor_member').hide()
             } else if (this.value == '法人情報と異なる') {
                 $('#infor_member').show()
+            }
+        });
+
+        $('#post_code').on('keydown', function(e) {
+            if (e.which === 9) {
+                var zipcode = $(this).val().trim();
+                if(zipcode !== '') {
+                    $.ajax({
+                        url: 'https://zipcloud.ibsnet.co.jp/api/search',
+                        type: 'GET',
+                        data: { zipcode: zipcode },
+                        dataType: 'json',
+                        success: function(response) {
+                            $('#prefectures').val(response.results[0].address1);
+                            $('#municipalities').val(response.results[0].address2);
+                            $('#street_address').val(response.results[0].address3);
+                            $('#street_address').focus();
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Error:', error);
+                        }
+                    });
+                }
             }
         });
     });
