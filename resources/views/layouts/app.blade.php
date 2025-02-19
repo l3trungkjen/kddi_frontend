@@ -12,7 +12,7 @@
 <body>
   <header>
     <p class="header-logo">
-      <img src="{{ asset('images/logo_01.png') }}" width="291" height="50" alt="モバイルケアテクノロジーズ">
+      <img src="{{ env('APP_ENV') == 'production' ? secure_asset('images/logo_01.png') : asset('images/logo_01.png') }}" width="291" height="50" alt="モバイルケアテクノロジーズ">
     </p>
   </header>
 
