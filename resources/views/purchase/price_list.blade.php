@@ -98,5 +98,5 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('js/maker.js') }}"></script>
+    <script src="{{ env('APP_ENV') == 'production' ? secure_asset('js/maker.js') : asset('js/maker.js') }}"></script>
 @endsection

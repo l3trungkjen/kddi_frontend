@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
   <title>KDDIデモ機買取施策&emsp;ログイン - モバイルケアテクノロジーズ株式会社</title>
-  <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <link rel="stylesheet" href="{{ env('APP_ENV') == 'production' ? secure_asset('css/normalize.css') : asset('css/normalize.css') }}">
+  <link rel="stylesheet" href="{{ env('APP_ENV') == 'production' ? secure_asset('css/style.css') : asset('css/style.css') }}">
   <link rel="shortcut icon" href="https://www.mobile-ct.co.jp/favicon.png" />
 </head>
 <body>
@@ -32,10 +32,10 @@
     @include('sections.footer')
   </footer>
 
-  <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
+  <script src="{{ env('APP_ENV') == 'production' ? secure_asset('js/jquery-3.7.1.min.js') : asset('js/jquery-3.7.1.min.js') }}"></script>
   {{-- <script src="{{ asset('js/base.js') }}"></script>
   <script src="{{ asset('js/login.js') }}"></script> --}}
-  <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
+  <script src="{{ env('APP_ENV') == 'production' ? secure_asset('js/jquery.validate.min.js') : asset('js/jquery.validate.min.js') }}"></script>
   @yield('script')
 </body>
 </html>
