@@ -35,7 +35,7 @@ class AuthController extends Controller
                 ->withErrors(['login_error' => 'メールアドレスまたはパスワードが間違っています。']);
         }
         Cookie::queue(Cookie::make('token', $request->email, 10080));
-        return redirect('/base');
+        return redirect()->route('home');
     }
 
     // 03-2_pw_forget.html
