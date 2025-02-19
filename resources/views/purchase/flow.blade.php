@@ -51,7 +51,7 @@
                 </p>
             </div>
 
-            <div class="flow_arrow"><img src="{{ asset('images/arrow_bottom.jpg') }}"></div>
+            <div class="flow_arrow"><img src="{{ asset('images/arrow_bottom.png') }}"></div>
 
             <h2 class="tl">データ初期化</h2>
             <div class="flow_ph"><img src="{{ asset('images/flow06.jpg') }}"></div>
