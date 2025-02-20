@@ -77,7 +77,7 @@ class PurchaseController extends Controller
     public function stepTwoSubmit(Request $request)
     {
         try {
-            if ($request->choose_input_information == "法人情報と同じ") {
+            if ($request->more_address || $request->choose_input_information == "法人情報と同じ") {
                 $email = $this->user_token;
                 if ($email) {
                     $query = "法人メールアドレス1=\"$email\" limit 1";
@@ -97,7 +97,8 @@ class PurchaseController extends Controller
                     }
                 }
             }
-
+            // dd($request->more_address);
+            $name = isset($contact_name) ? $contact_name : $request->contact_name;
             $data = [
                 "買取キット発送先" => ["value" => isset($request->more_address) ? $request->more_address : "0"],
                 "法人名" => ["value" => isset($company_name) ? $company_name : $request->company_name],
@@ -108,7 +109,7 @@ class PurchaseController extends Controller
                 "住所4" => ["value" => isset($building_name) ? $building_name : $request->building_name],
                 "部署名" => ["value" => isset($department_name) ? $department_name : $request->department_name],
                 "電話番号" => ["value" => isset($telephone) ? $telephone : $request->telephone],
-                "担当者名" => ["value" => isset($contact_name) ? $contact_name : $request->contact_name],
+                "担当者名" => ["value" => $name],
                 "買取情報機種名1" => ["value" => $request->model_name_1],
                 "買取情報台数1" => ["value" => $request->number_units_1],
                 "買取情報機種名2" => ["value" => $request->model_name_2],
@@ -120,8 +121,10 @@ class PurchaseController extends Controller
             $kintone = new KintoneRepository($this->appId);
             $purchase = $kintone->addRecord($data);
             if (isset($purchase['id'])) {
-                $sendGird = new SendGridRepository();
-                $sendMail = $sendGird->send($request->email, $request->email, "買取申込完了", 'register_purchase_success');
+                if ($email) {
+                    $sendGird = new SendGridRepository();
+                    $sendMail = $sendGird->send($email, $email, "買取申込完了", 'register_purchase_success', $name);
+                }
                 return redirect()->route('purchase.stepThree');
             } else {
                 session()->flash('step_one_data', $request->all());

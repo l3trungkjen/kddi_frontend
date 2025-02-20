@@ -19,7 +19,7 @@ class SendGridRepository
         $this->from_name = env('MAIL_FROM_NAME');
     }
 
-    public function send($to_address, $to_name, $title, $type)
+    public function send($to_address, $to_name, $title, $type, $name = '')
     {
         $email = new \SendGrid\Mail\Mail();
         $email->setFrom($this->from_address, $this->from_name);
@@ -33,10 +33,12 @@ class SendGridRepository
         } else if ($type == 'register_customer') {
             $htmlContent = View::make('emails.register_customer', [
                 'title' => $title,
+                'name' => $name,
             ])->render();
         } else if ($type == 'register_purchase_success') {
             $htmlContent = View::make('emails.register_purchase_success', [
                 'title' => $title,
+                'name' => $name,
             ])->render();
         } else {
             return false;

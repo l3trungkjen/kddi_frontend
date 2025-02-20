@@ -46,14 +46,22 @@ class AuthController extends Controller
 
     public function forgetPasswordSubmit(Request $request)
     {
-        $sendGird = new SendGridRepository();
-        $sendMail = $sendGird->send($request->email, $request->email, "パスワードをお忘れの方", 'forgot_password');
-        if ($sendMail == 202 || $sendMail == 200) {
-            return redirect()->back()
-                ->withErrors(['message_success' => 'メールは正常に送信されました。']);
+        $query = "法人メールアドレス1=\"$request->email\" limit 1";
+        $kintone = new KintoneRepository($this->appId);
+        $data = $kintone->getRecord($query);
+        if (isset($data['records']) && count($data['records']) > 0) {
+            $sendGird = new SendGridRepository();
+            $sendMail = $sendGird->send($request->email, $request->email, "パスワードをお忘れの方", 'forgot_password');
+            if ($sendMail == 202 || $sendMail == 200) {
+                return redirect()->back()
+                    ->withErrors(['message_success' => 'メールは正常に送信されました。']);
+            } else {
+                return redirect()->back()
+                    ->withErrors(['message_error' => 'メールの送信に失敗しました。']);
+            }
         } else {
             return redirect()->back()
-                ->withErrors(['message_error' => 'メールの送信に失敗しました。']);
+                ->withErrors(['message_error' => 'メールが存在しません。']);
         }
     }
 

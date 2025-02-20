@@ -64,6 +64,7 @@
                                 <dl>
                                     <dt><label>郵便番号<span class="required">必須</span></label></dt>
                                     <dd>
+                                        <span class="p-country-name" style="display:none;">Japan</span>
                                         <input type="text" name="post_code" id="post_code" class="p-postal-code entry-input" size="8" maxlength="8">
                                     </dd>
                                 </dl>
@@ -76,12 +77,12 @@
 
                                 <dl>
                                     <dt><label>市区町村<span class="required">必須</span> <span class="notice">※郵便番号から自動入力</span></label></dt>
-                                    <dd><input type="text" name="municipalities" id="municipalities" class="p-locality p-street-address entry-input"></dd>
+                                    <dd><input type="text" name="municipalities" id="municipalities" class="p-locality entry-input"></dd>
                                 </dl>
 
                                 <dl>
                                     <dt><label>番地以降<span class="required">必須</span></label></dt>
-                                    <dd><input type="text" name="street_address" id="street_address" class="p-extended-address entry-input"></dd>
+                                    <dd><input type="text" name="street_address" id="street_address" class="p-street-address entry-input"></dd>
                                 </dl>
 
                                 <dl>
@@ -157,130 +158,108 @@
 @endsection
 
 @section('script')
-  <script>
-    $(function() {
-        $("#purchase_step_one").validate({
-            rules: {
-                company_name: {
-                    required: true,
+    <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
+    <script>
+        $(function() {
+            $("#purchase_step_one").validate({
+                rules: {
+                    company_name: {
+                        required: true,
+                    },
+                    company_name_kana: {
+                        required: true,
+                    },
+                    post_code: {
+                        required: true,
+                        digits: true,
+                    },
+                    prefectures: {
+                        required: true,
+                    },
+                    municipalities: {
+                        required: true,
+                    },
+                    street_address: {
+                        required: true,
+                    },
+                    department_name: {
+                        required: true,
+                    },
+                    telephone: {
+                        required: true,
+                        digits: true,
+                    },
+                    contact_name: {
+                        required: true,
+                    },
+                    model_name_1: {
+                        required: true,
+                    },
+                    number_units_1: {
+                        required: true,
+                    },
                 },
-                company_name_kana: {
-                    required: true,
+                messages: {
+                    company_name: {
+                        required: "[法人名]を入力してください。",
+                    },
+                    company_name_kana: {
+                        required: "[法人名 カナ]を入力してください。",
+                    },
+                    post_code: {
+                        required: "[郵便番号]を入力してください。",
+                        digits: "[郵便番号]数字を入力してください。",
+                    },
+                    prefectures: {
+                        required: "[都道府県]を入力してください。",
+                    },
+                    municipalities: {
+                        required: "[市区町村]を入力してください。",
+                    },
+                    street: {
+                        required: "[番地以降]を入力してください。",
+                    },
+                    department: {
+                        required: "[担当部署]を入力してください。",
+                    },
+                    telephone: {
+                        required: "[電話番号]を入力してください。",
+                        digits: "[電話番号]数字を入力してください。",
+                    },
+                    model_name_1: {
+                        required: "[機種名1]を入力してください。",
+                    },
+                    number_units_1: {
+                        required: "[台数]を入力してください。",
+                    },
                 },
-                post_code: {
-                    required: true,
-                    digits: true,
-                },
-                prefectures: {
-                    required: true,
-                },
-                municipalities: {
-                    required: true,
-                },
-                street_address: {
-                    required: true,
-                },
-                department_name: {
-                    required: true,
-                },
-                telephone: {
-                    required: true,
-                    digits: true,
-                },
-                contact_name: {
-                    required: true,
-                },
-                model_name_1: {
-                    required: true,
-                },
-                number_units_1: {
-                    required: true,
-                },
-            },
-            messages: {
-                company_name: {
-                    required: "[法人名]を入力してください。",
-                },
-                company_name_kana: {
-                    required: "[法人名 カナ]を入力してください。",
-                },
-                post_code: {
-                    required: "[郵便番号]を入力してください。",
-                    digits: "[郵便番号]数字を入力してください。",
-                },
-                prefectures: {
-                    required: "[都道府県]を入力してください。",
-                },
-                municipalities: {
-                    required: "[市区町村]を入力してください。",
-                },
-                street: {
-                    required: "[番地以降]を入力してください。",
-                },
-                department: {
-                    required: "[担当部署]を入力してください。",
-                },
-                telephone: {
-                    required: "[電話番号]を入力してください。",
-                    digits: "[電話番号]数字を入力してください。",
-                },
-                model_name_1: {
-                    required: "[機種名1]を入力してください。",
-                },
-                number_units_1: {
-                    required: "[台数]を入力してください。",
-                },
-            },
-            errorPlacement: function(error, element)
-            {
-                if (element.is(":radio"))
+                errorPlacement: function(error, element)
                 {
-                    error.appendTo(element.parents('.radio'));
-                }
-                else
-                {
-                    error.insertAfter(element);
-                }
-            },
-            submitHandler: function (form) {
-                form.submit();
-            },
-        });
+                    if (element.is(":radio"))
+                    {
+                        error.appendTo(element.parents('.radio'));
+                    }
+                    else
+                    {
+                        error.insertAfter(element);
+                    }
+                },
+                submitHandler: function (form) {
+                    form.submit();
+                },
+            });
 
-        $("#more_address").change(function () {
-            this.checked ? $('#information').hide() : $('#information').show()
-        });
+            $("#more_address").change(function () {
+                this.checked ? $('#information').hide() : $('#information').show()
+            });
 
-        $('input[type=radio][name=choose_input_information]').change(function() {
-            if (this.value == '法人情報と同じ') {
-                $('#infor_member').hide()
-            } else if (this.value == '法人情報と異なる') {
-                $('#infor_member').show()
-            }
-        });
-
-        $('#post_code').on('keydown', function(e) {
-            if (e.which === 9) {
-                var zipcode = $(this).val().trim();
-                if(zipcode !== '') {
-                    $.ajax({
-                        url: 'https://zipcloud.ibsnet.co.jp/api/search',
-                        type: 'GET',
-                        data: { zipcode: zipcode },
-                        dataType: 'json',
-                        success: function(response) {
-                            $('#prefectures').val(response.results[0].address1);
-                            $('#municipalities').val(response.results[0].address2);
-                            $('#street_address').val(response.results[0].address3);
-                            $('#street_address').focus();
-                        },
-                        error: function(xhr, status, error) {
-                            console.error('Error:', error);
-                        }
-                    });
+            $('input[type=radio][name=choose_input_information]').change(function() {
+                if (this.value == '法人情報と同じ') {
+                    $('#infor_member').hide()
+                } else if (this.value == '法人情報と異なる') {
+                    $('#infor_member').show()
                 }
-            }
+            });
         });
-    });
-  </script>
+    </script>
 @endsection

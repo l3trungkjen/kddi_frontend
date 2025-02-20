@@ -138,7 +138,7 @@ class EntryController extends Controller
             $entry = $kintone->addRecord($data);
             if (isset($entry['id'])) {
                 $sendGird = new SendGridRepository();
-                $sendMail = $sendGird->send($request->email, $request->email, "お客様情報登録完了", 'register_customer');
+                $sendMail = $sendGird->send($request->email, $request->email, "お客様情報登録完了", 'register_customer', $request->contact_name);
                 return redirect()->route('entry.stepThree');
             } else {
                 session()->flash('step_one_data', $request->all());

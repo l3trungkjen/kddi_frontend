@@ -51,11 +51,11 @@
             </dl>
             <dl>
               <dt><label>市区町村<span class="required">必須</span> <span class="notice">※郵便番号から自動入力</span></label></dt>
-              <dd><input type="text" class="p-locality p-street-address entry-input" name="municipalities" id="municipalities"></dd>
+              <dd><input type="text" class="p-locality entry-input" name="municipalities" id="municipalities"></dd>
             </dl>
             <dl>
               <dt><label>番地以降<span class="required">必須</span></label></dt>
-              <dd><input type="text" class="p-extended-address entry-input" name="street" id="street"></dd>
+              <dd><input type="text" class="p-street-address entry-input" name="street" id="street"></dd>
             </dl>
             <dl>
               <dt><label>建物名・フロア等</label></dt>
@@ -154,12 +154,12 @@
                 <span class="notice">※郵便番号から自動入力</span></label>
               </dt>
               <dd>
-                <input type="text" class="p-locality p-street-address entry-input" name="contact_municipalities" id="contact_municipalities">
+                <input type="text" class="p-locality entry-input" name="contact_municipalities" id="contact_municipalities">
               </dd>
             </dl>
             <dl>
               <dt><label>番地以降<span class="required">必須</span></label></dt>
-              <dd><input type="text" class="p-extended-address entry-input" name="contact_street" id="contact_street"></dd>
+              <dd><input type="text" class="p-street-address entry-input" name="contact_street" id="contact_street"></dd>
             </dl>
             <dl>
               <dt><label>建物名・フロア等</label></dt>
@@ -204,6 +204,7 @@
 @endsection
 
 @section('script')
+  <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
   <script>
     $(function() {
       $("#entry_step_one").validate({
@@ -413,29 +414,6 @@
             $('#registration_number_container').show()
         } else if (this.value == '免税事業者') {
             $('#registration_number_container').hide()
-        }
-      });
-
-      $('#post_code').on('keydown', function(e) {
-        if (e.which === 9) {
-          var zipcode = $(this).val().trim();
-          if(zipcode !== '') {
-            $.ajax({
-              url: 'https://zipcloud.ibsnet.co.jp/api/search',
-              type: 'GET',
-              data: { zipcode: zipcode },
-              dataType: 'json',
-              success: function(response) {
-                $('#prefectures').val(response.results[0].address1);
-                $('#municipalities').val(response.results[0].address2);
-                $('#street').val(response.results[0].address3);
-                $('#street').focus();
-              },
-              error: function(xhr, status, error) {
-                console.error('Error:', error);
-              }
-            });
-          }
         }
       });
     });
