@@ -25,7 +25,7 @@
         <p>{{ $currentDate }}時点の買取価格になります</p>
     </div>
     <p class="noticeB">
-        ※{{ $currentDate }}端末着荷分まで適用されます。<br>
+        ※{{ $nextMonth }}端末着荷分まで適用されます。<br>
         <span class="attention">※ 記載のない端末についても買取可能です。</span><br>
         ※ 不明点がある場合、<a href="mailto:kddi_demo@mobile-ct.com">こちら</a>までお問い合わせください。<br>
         ※ ランク基準は<a href="" data-toggle="modal" data-target="#modal1">こちら</a>をご参照ください
