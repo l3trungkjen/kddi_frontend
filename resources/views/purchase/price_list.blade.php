@@ -3,8 +3,8 @@
 @section('breadcrumb')
   <ul class="breadcrumb">
     <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-    {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li> --}}
-    <li class="breadcrumb-item"><a href="/base">個別TOP</a></li>
+    {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDI店頭デモ機買取ご紹介ページ</a></li> --}}
+    <li class="breadcrumb-item"><a href="/base">基本ページ</a></li>
     <li class="breadcrumb-item">買取価格</li>
   </ul>
 @endsection
@@ -95,6 +95,58 @@
     </div>
     <a href="/purchase/step-one" class="button submit-button">買取申込はこちら</a>
   </main>
+  <div id="#Modal">
+  <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <div class="modal-body">
+  <div class="model">
+  <h3>ランク基準</h3>
+  <div class="rank">
+  <h4>Aランク</h4>
+  <p>
+  ・機能に異常無し<br>
+  ・傷等ほぼ無し
+  </p>
+  </div>
+  <div class="rank">
+  <h4>Bランク</h4>
+  <p>
+  ・機能に異常無し<br>
+  ・液晶・タッチパネルの破損・浮き無し（傷はある場合有り）<br>
+  ・使用上問題のない程度の軽度の傷、打痕・塗装剥がれ等有り
+  </p>
+  </div>
+  <div class="rank">
+  <h4>Cランク</h4>
+  <p>
+  ・機能に異常無し
+  ・液晶・タッチパネルの破損・浮き無し（傷はある場合有り）<br>
+  ・動作に問題がない程度の大きな傷・ヒビ・欠け等有り
+  </p>
+  </div>
+  <div class="rank">
+  <h4>Jランク</h4>
+  <p>
+  下記いずれかの異常有り<br>
+  ・一部機能に異常有り<br>
+  ・液晶・タッチパネルの破損・浮き有り<br>
+  ・動作に問題が出るレベルの大きな傷・ヒビ・欠け・変形等有り<br>
+  ・電源が入らない、充電不可、電池膨張等の使用不可端末
+  </p>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
 @endsection
 
 @section('script')

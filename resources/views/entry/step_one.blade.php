@@ -21,7 +21,7 @@
 @section('content')
   <main>
     <h1 class="heading-level-1">お客様情報登録</h1>
-    <div class="">
+    <div class="step">
         <img src="{{ asset('images/step01.png') }}">
     </div>
     <form method="POST" id="entry_step_one" action="/entry/step-one-submit2">
@@ -187,9 +187,13 @@
               <input id="acd-check1" class="acd-check" type="checkbox">
               <label class="acd-label" for="acd-check1">中古端末買取利用規約</label>
               <div class="acd-content">
-                <OBJECT DATA="terms.html" TYPE="text/plain" WIDTH="100%" HEIGHT="100%"></OBJECT>
+                <OBJECT DATA="{{ asset('pdf/terms.html') }}" TYPE="text/plain" WIDTH="100%" HEIGHT="100%"></OBJECT>
               </div>
             </div>
+            <div class="icon_other">
+            <a href="{{ asset('pdf/中古端末買取り利用規約.pdf') }}" target="_blank">中古端末買取利用規約（PDF）</a>
+            </div>
+
             <p class="check_kiyaku">
               <input type="checkbox" name="agree_terms" id="agree_terms" value="1">
               <label><span>規約に同意する</span></label>

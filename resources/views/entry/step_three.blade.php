@@ -21,7 +21,7 @@
 @section('content')
   <main>
     <h1 class="heading-level-1">お客様情報登録</h1>
-    <div class="">
+    <div class="step">
       <img src="{{ asset('images/step03.png') }}">
     </div>
     <div class="flow">
