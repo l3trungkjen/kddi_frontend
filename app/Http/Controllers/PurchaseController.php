@@ -27,6 +27,7 @@ class PurchaseController extends Controller
     {
         $this->purchaseId = $this->appPurchaseId;
         $this->currentDate = Carbon::now()->format('Y年m月d日');
+        $this->nextMonth = Carbon::now()->addMonth()->format('Y年m月') . "末日";
         return view('purchase.price_list', $this->data);
     }
 
