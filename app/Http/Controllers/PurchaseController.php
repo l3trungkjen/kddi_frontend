@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Repositories\Kintone\KintoneRepository;
 use App\Repositories\SendGrid\SendGridRepository;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 
 class PurchaseController extends Controller
 {
@@ -26,6 +26,7 @@ class PurchaseController extends Controller
     public function priceList(Request $request)
     {
         $this->purchaseId = $this->appPurchaseId;
+        $this->currentDate = Carbon::now()->format('Y年m月d日');
         return view('purchase.price_list', $this->data);
     }
 
@@ -77,8 +78,8 @@ class PurchaseController extends Controller
     public function stepTwoSubmit(Request $request)
     {
         try {
+            $email = $this->user_token;
             if ($request->more_address || $request->choose_input_information == "法人情報と同じ") {
-                $email = $this->user_token;
                 if ($email) {
                     $query = "法人メールアドレス1=\"$email\" limit 1";
                     $kintone = new KintoneRepository($this->appMemberId);
@@ -117,9 +118,11 @@ class PurchaseController extends Controller
                 "買取情報機種名3" => ["value" => $request->number_name_3],
                 "買取情報台数3" => ["value" => $request->number_units_3],
                 "通信欄" => ["value" => $request->message],
+                "法人名カナ" => ["value" => $request->company_name_kana],
             ];
             $kintone = new KintoneRepository($this->appId);
             $purchase = $kintone->addRecord($data);
+
             if (isset($purchase['id'])) {
                 if ($email) {
                     $sendGird = new SendGridRepository();

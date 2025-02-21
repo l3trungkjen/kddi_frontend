@@ -180,7 +180,7 @@
           // },
           post_code: {
             required: true,
-            digits: true,
+            // digits: true,
           },
           prefectures: {
             required: true,
@@ -196,7 +196,7 @@
           },
           telephone: {
             required: true,
-            digits: true,
+            // digits: true,
           },
           email: {
             required: true,
@@ -253,7 +253,7 @@
           // },
           contact_telephone: {
             required: true,
-            digits: true,
+            // digits: true,
           },
           // contact_birthday: {
           //   required: true,
@@ -274,7 +274,7 @@
           },
           post_code: {
             required: "[郵便番号]を入力してください。",
-            digits: "[郵便番号]数字を入力してください。",
+            // digits: "[郵便番号]数字を入力してください。",
           },
           prefectures: {
             required: "[都道府県]を入力してください。",
@@ -290,7 +290,7 @@
           },
           telephone: {
             required: "[電話番号]を入力してください。",
-            digits: "[電話番号]数字を入力してください。",
+            // digits: "[電話番号]数字を入力してください。",
           },
           email: {
             required: "[メールアドレス]を入力してください。",
@@ -334,7 +334,7 @@
           },
           contact_post_code: {
             required: "[郵便番号]を入力してください。",
-            digits: "[郵便番号]数字を入力してください。",
+            // digits: "[郵便番号]数字を入力してください。",
           },
           contact_prefectures: {
             required: "[都道府県]を入力してください。",
@@ -347,7 +347,7 @@
           },
           contact_telephone: {
             required: "[電話番号]を入力してください。",
-            digits: "[電話番号]数字を入力してください。",
+            // digits: "[電話番号]数字を入力してください。",
           },
           contact_birthday: {
             required: "[生年月日]を入力してください。",
@@ -370,6 +370,24 @@
         submitHandler: function (form) {
           form.submit();
         },
+      });
+
+      $('#post_code').on('input', function () {
+        let value = $(this).val().replace(/\D/g, '');
+        if (value.length > 3) {
+            value = value.slice(0, 3) + '-' + value.slice(3, 7);
+        }
+        $(this).val(value);
+      });
+
+      $('#telephone, #contact_telephone').on('input', function () {
+        let value = $(this).val().replace(/\D/g, '');
+        if (value.length > 3 && value.length <= 7) {
+          value = value.slice(0, 3) + '-' + value.slice(3);
+        } else if (value.length > 7) {
+          value = value.slice(0, 3) + '-' + value.slice(3, 7) + '-' + value.slice(7, 11);
+        }
+        $(this).val(value);
       });
     });
   </script>
