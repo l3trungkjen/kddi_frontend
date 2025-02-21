@@ -31,10 +31,24 @@
                 <div class="formcat">
                     <div class="h-adr">
                         <h2 class="tl">買取キット発送先</h2>
-                        <p>
+                        {{-- <p>
                             <input type="checkbox" value="1" id="more_address" name="more_address">　
-                            <label>複数箇所の場合はチェックを入れてください</label>
-                        </p>
+                            <label>複数箇所の場合はチェックを入れてください。</label>
+                        </p> --}}
+                        <div class="flow_waku1">
+                            <h3>
+                                <div class="chec">
+                                    <input type="checkbox" value="1" id="more_address" name="more_address">
+                                    <span>複数箇所の場合はチェックを入れてください。</span>
+                                </div>
+                            </h3>
+                            <p>※ 発送先が複数箇所ある場合は通信欄にこちらにチェックを入れていただき、「買取キット配送先リスト」を<a href="mailto:kddi_demo@mobile-ct.com">kddi_demo@mobile-ct.com</a>へメールでお送りください。</p>
+                            <div class="icon_xls">
+                                <a href="/pdf/買取キット配送先リスト.xlsx" target="_blank">買取キット配送先リスト.xlsx（ダウンロード）</a>
+                            </div>
+
+                        </div>
+
                         <div id="information">
                             @if (isset($member))
                                 <dl>
@@ -114,7 +128,14 @@
 
                 <div class="formcat">
                     <h2 class="tl">買取機種情報</h2>
-                    <p>※ 台数はおおよそで構いません<br>４機種以上ある場合は通信欄にご記入ください</p>
+
+                    <div class="flow_waku1">
+                        <p>※ 台数はおおよそで構いません。<br>※ ４機種以上ある場合は通信欄にその旨ご記入いただき、「発送端末リスト」を<a href="mailto:kddi_demo@mobile-ct.com">kddi_demo@mobile-ct.com</a>へメールでお送りください。</p>
+                        <div class="icon_xls">
+                            <a href="/pdf/発送端末リスト.xlsx" target="_blank">発送端末リスト.xlsx（ダウンロード）</a>
+                        </div>
+                    </div>
+
                     <dl>
                         <dt><label>機種名1／台数<span class="required">必須</span></label></dt>
                         <dd>
@@ -171,7 +192,7 @@
                     },
                     post_code: {
                         required: true,
-                        digits: true,
+                        // digits: true,
                     },
                     prefectures: {
                         required: true,
@@ -187,7 +208,7 @@
                     },
                     telephone: {
                         required: true,
-                        digits: true,
+                        // digits: true,
                     },
                     contact_name: {
                         required: true,
@@ -208,7 +229,7 @@
                     },
                     post_code: {
                         required: "[郵便番号]を入力してください。",
-                        digits: "[郵便番号]数字を入力してください。",
+                        // digits: "[郵便番号]数字を入力してください。",
                     },
                     prefectures: {
                         required: "[都道府県]を入力してください。",
@@ -216,15 +237,15 @@
                     municipalities: {
                         required: "[市区町村]を入力してください。",
                     },
-                    street: {
+                    street_address: {
                         required: "[番地以降]を入力してください。",
                     },
-                    department: {
+                    department_name: {
                         required: "[担当部署]を入力してください。",
                     },
                     telephone: {
                         required: "[電話番号]を入力してください。",
-                        digits: "[電話番号]数字を入力してください。",
+                        // digits: "[電話番号]数字を入力してください。",
                     },
                     model_name_1: {
                         required: "[機種名1]を入力してください。",
@@ -232,6 +253,9 @@
                     number_units_1: {
                         required: "[台数]を入力してください。",
                     },
+                    contact_name: {
+                        required: "[お名前]を入力してください。",
+                    }
                 },
                 errorPlacement: function(error, element)
                 {
@@ -258,6 +282,37 @@
                     $('#infor_member').hide()
                 } else if (this.value == '法人情報と異なる') {
                     $('#infor_member').show()
+                }
+            });
+
+            $('#post_code').on('input', function () {
+                let value = $(this).val().replace(/\D/g, '');
+                if (value.length > 3) {
+                    value = value.slice(0, 3) + '-' + value.slice(3, 7);
+                }
+                $(this).val(value);
+            });
+
+            $('#telephone').on('input', function () {
+                let value = $(this).val().replace(/\D/g, '');
+                if (value.length > 3 && value.length <= 7) {
+                value = value.slice(0, 3) + '-' + value.slice(3);
+                } else if (value.length > 7) {
+                value = value.slice(0, 3) + '-' + value.slice(3, 7) + '-' + value.slice(7, 11);
+                }
+                $(this).val(value);
+            });
+
+            $('#company_name_kana').on('input', function () {
+                let value = $(this).val();
+                let isKatakana = /^[\u30A0-\u30FF]+$/.test(value);
+
+                if (!isKatakana && value.length > 0) {
+                    if (!$('#company_name_kana').next('.error').length) {
+                        $('#company_name_kana').after('<label class="error">[全角カタカナ］を入力してください。</label>');
+                    }
+                } else {
+                    $('#company_name_kana').next('.error').remove('');
                 }
             });
         });

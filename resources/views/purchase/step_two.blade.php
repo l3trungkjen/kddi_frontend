@@ -36,6 +36,9 @@
                         <label>複数箇所の場合はチェックを入れてください</label>
                     </p>
 
+                    {{-- @php
+                        dd($purchase->more_address);
+                    @endphp --}}
                     @if (!isset($purchase->more_address))
                         <div id="information">
                             <dl>
@@ -52,7 +55,7 @@
                                 </dd>
                             </dl>
 
-                            @if (isset($purchase->choose_input_information) && $purchase->choose_input_information == "法人情報と異なる")
+                            @if (!isset($purchase->choose_input_information) || (isset($purchase->choose_input_information) && $purchase->choose_input_information == "法人情報と異なる"))
                                 <div id="infor_member">
                                     <dl>
                                         <dt><label>法人名<span class="required">必須</span></label></dt>

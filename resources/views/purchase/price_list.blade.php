@@ -22,18 +22,18 @@
   <main>
     <h1 class="heading-level-1">買取価格</h1>
     <div class="guidebox">
-        <p>2024/9/17時点の買取価格になります</p>
+        <p>{{ $currentDate }}時点の買取価格になります</p>
     </div>
     <p class="noticeB">
-        ※ 2024/10/16端末着荷分まで適用されます。<br>
+        ※{{ $currentDate }}端末着荷分まで適用されます。<br>
         <span class="attention">※ 記載のない端末についても買取可能です。</span><br>
         ※ 不明点がある場合、<a href="mailto:kddi_demo@mobile-ct.com">こちら</a>までお問い合わせください。<br>
-        ※ ランク基準は<a href="" data-toggle="modal" data-target="#modal1">こちら</a>を参照ください
+        ※ ランク基準は<a href="" data-toggle="modal" data-target="#modal1">こちら</a>をご参照ください
     </p>
     <div class="maker">
-        <h3>メーカーから探す</h3>
+        <h3>カテゴリーから探す</h3>
         <select id="selectBox" onchange="showContent({{ $purchaseId }})">
-            <option value="" selected="" disabled>メーカーを選択</option>
+            <option value="" selected="" disabled>カテゴリーを選択</option>
             <option value="iPhone">Apple（iPhone）</option>
             <option value="iPad">Apple（iPad）</option>
             <option value="Android smartphones/tablets">Android smartphones/tablets</option>

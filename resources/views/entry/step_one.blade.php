@@ -67,7 +67,7 @@
             </dl>
             <dl>
               <dt><label>電話番号<span class="required">必須</span></label></dt>
-              <dd><input required="required" type="text" class="entry-input" name="telephone" id="telephone"></dd>
+              <dd><input required="required" type="text" class="entry-input" name="telephone" id="telephone" size="13" maxlength="13"></dd>
             </dl>
             <dl>
               <dt><label>メールアドレス<span class="required">必須</span></label></dt>
@@ -175,7 +175,18 @@
             </dl>
             <dl>
               <dt><label>職業<span class="required">必須</span></label></dt>
-              <dd><input required="required" type="text" class="entry-input" name="contact_occupation" id="contact_occupation"></dd>
+              <dd>
+                {{-- <input required="required" type="text" class="entry-input" name="contact_occupation" id="contact_occupation"> --}}
+                <select name="contact_occupation" id="contact_occupation" required="required" class="entry-input">
+                  <option value="会社員">会社員</option>
+                  <option value="公務員">公務員</option>
+                  <option value="自営業">自営業</option>
+                  <option value="契約・派遣">契約・派遣</option>
+                  <option value="学生">学生</option>
+                  <option value="アルバイト">アルバイト</option>
+                  <option value="その他">その他</option>
+                </select>
+              </dd>
             </dl>
             <dl>
               <dt class="thin"><label>ご要望やご不明点がございましたらご記入ください</label></dt>
@@ -189,6 +200,9 @@
               <div class="acd-content">
                 <OBJECT DATA="terms.html" TYPE="text/plain" WIDTH="100%" HEIGHT="100%"></OBJECT>
               </div>
+            </div>
+            <div class="icon_other">
+              <a href="/pdf/中古端末買取り利用規約.pdf" target="_blank">中古端末買取利用規約（PDF）</a>
             </div>
             <p class="check_kiyaku">
               <input type="checkbox" name="agree_terms" id="agree_terms" value="1">
@@ -217,7 +231,7 @@
           },
           post_code: {
             required: true,
-            digits: true,
+            // digits: true,
           },
           prefectures: {
             required: true,
@@ -233,7 +247,7 @@
           },
           telephone: {
             required: true,
-            digits: true,
+            // digits: true,
           },
           email: {
             required: true,
@@ -277,7 +291,7 @@
           },
           contact_post_code: {
             required: true,
-            digits: true,
+            // digits: true,
           },
           contact_prefectures: {
             required: true,
@@ -290,7 +304,7 @@
           },
           contact_telephone: {
             required: true,
-            digits: true,
+            // digits: true,
           },
           contact_birthday: {
             required: true,
@@ -311,7 +325,7 @@
           },
           post_code: {
             required: "[郵便番号]を入力してください。",
-            digits: "[郵便番号]数字を入力してください。",
+            // digits: "[郵便番号]数字を入力してください。",
           },
           prefectures: {
             required: "[都道府県]を入力してください。",
@@ -327,7 +341,7 @@
           },
           telephone: {
             required: "[電話番号]を入力してください。",
-            digits: "[電話番号]数字を入力してください。",
+            // digits: "[電話番号]数字を入力してください。",
           },
           email: {
             required: "[メールアドレス]を入力してください。",
@@ -371,7 +385,7 @@
           },
           contact_post_code: {
             required: "[郵便番号]を入力してください。",
-            digits: "[郵便番号]数字を入力してください。",
+            // digits: "[郵便番号]数字を入力してください。",
           },
           contact_prefectures: {
             required: "[都道府県]を入力してください。",
@@ -384,13 +398,16 @@
           },
           contact_telephone: {
             required: "[電話番号]を入力してください。",
-            digits: "[電話番号]数字を入力してください。",
+            // digits: "[電話番号]数字を入力してください。",
           },
           contact_birthday: {
             required: "[生年月日]を入力してください。",
           },
           contact_occupation: {
             required: "[職業]を入力してください。",
+          },
+          agree_terms: {
+            required: "[規約に同意する]を入力してください。",
           },
         },
         errorPlacement: function(error, element)
@@ -416,6 +433,54 @@
             $('#registration_number_container').hide()
         }
       });
+
+      $('#post_code, #contact_post_code').on('input', function () {
+        let value = $(this).val().replace(/\D/g, '');
+        if (value.length > 3) {
+            value = value.slice(0, 3) + '-' + value.slice(3, 7);
+        }
+        $(this).val(value);
+      });
+
+      $('#telephone, #contact_telephone').on('input', function () {
+        let value = $(this).val().replace(/\D/g, '');
+        if (value.length > 3 && value.length <= 7) {
+          value = value.slice(0, 3) + '-' + value.slice(3);
+        } else if (value.length > 7) {
+          value = value.slice(0, 3) + '-' + value.slice(3, 7) + '-' + value.slice(7, 11);
+        }
+        $(this).val(value);
+      });
+
+      $('#company_name_kana').on('input', function () {
+        let value = $(this).val();
+        let isKatakana = /^[\u30A0-\u30FF]+$/.test(value);
+
+        if (!isKatakana && value.length > 0) {
+          if (!$('#company_name_kana').next('.error').length) {
+            $('#company_name_kana').after('<label class="error">[全角カタカナ］を入力してください。</label>');
+          }
+        } else {
+          $('#company_name_kana').next('.error').remove('');
+        }
+      });
+
+      $('#contact_name_kana').on('input', function () {
+        let value = $(this).val();
+        let isKatakana = /^[\u30A0-\u30FF]+$/.test(value);
+
+        if (!isKatakana && value.length > 0) {
+          if (!$('#contact_name_kana').next('.error').length) {
+            $('#contact_name_kana').after('<label class="error">[全角カタカナ］を入力してください。</label>');
+          }
+        } else {
+          $('#contact_name_kana').next('.error').remove('');
+        }
+      });
+
+      // function isZenkakuKana(s) {
+      //   return !!s.match(/^[ァ-ヶー　]*$/);  // 「　」は全角スペースです.
+      // }
     });
   </script>
 @endsection
