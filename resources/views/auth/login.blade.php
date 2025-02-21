@@ -29,7 +29,7 @@
       <input type="hidden" name="_token" value="{{ csrf_token() }}" />
       <div class="login-box">
         <p class="login-title">ログインID</p>
-        <input type="text" name="id" id="id" class="login-input" placeholder="your@email.com">
+        <input type="text" name="id" id="id" class="login-input" placeholder="ログインID">
         <p class="login-title">パスワード</p>
         <input type="password" name="password" id="password" class="login-input" placeholder="パスワード">
       </div>

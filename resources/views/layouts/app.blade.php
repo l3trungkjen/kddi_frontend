@@ -8,12 +8,13 @@
   <link rel="stylesheet" href="{{ env('APP_ENV') == 'production' ? secure_asset('css/normalize.css') : asset('css/normalize.css') }}">
   <link rel="stylesheet" href="{{ env('APP_ENV') == 'production' ? secure_asset('css/style.css') : asset('css/style.css') }}">
   <link rel="stylesheet" href="{{ env('APP_ENV') == 'production' ? secure_asset('css/global.css') : asset('css/global.css') }}">
+  <link rel="stylesheet" href="{{ env('APP_ENV') == 'production' ? secure_asset('css/bootstrap-4.0.0select.css') : asset('css/bootstrap-4.0.0select.css') }}">
   <link rel="shortcut icon" href="https://www.mobile-ct.co.jp/favicon.png" />
 </head>
 <body>
   <header>
     <p class="header-logo">
-      <img src="{{ env('APP_ENV') == 'production' ? secure_asset('images/logo_01.png') : asset('images/logo_01.png') }}" width="291" height="50" alt="モバイルケアテクノロジーズ">
+      <img src="{{ env('APP_ENV') == 'production' ? secure_asset('images/logo_01.png') : asset('images/logo_01.png') }}" alt="KDDI店頭デモ機買取ご紹介ページ">
     </p>
   </header>
 

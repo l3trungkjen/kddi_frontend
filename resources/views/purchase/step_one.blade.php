@@ -3,8 +3,8 @@
 @section('breadcrumb')
     <ul class="breadcrumb">
         <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-        {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li> --}}
-        <li class="breadcrumb-item"><a href="/base">個別TOP</a></li>
+        {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIご紹介者様ページ</a></li> --}}
+        <li class="breadcrumb-item"><a href="/base">基本ページ</a></li>
         <li class="breadcrumb-item">買取お申込み</li>
     </ul>
 @endsection
@@ -12,8 +12,8 @@
 @section('breadcrumb2')
     <ul class="breadcrumb">
         <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-        {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li> --}}
-        <li class="breadcrumb-item"><a href="/base">個別TOP</a></li>
+        {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIご紹介者様ページ</a></li> --}}
+        <li class="breadcrumb-item"><a href="/base">基本ページ</a></li>
         <li class="breadcrumb-item">買取お申込み</li>
     </ul>
 @endsection
@@ -22,7 +22,7 @@
     <main>
         <h1 class="heading-level-1">買取お申込み</h1>
 
-        <div class="">
+        <div class="step">
             <img src="{{ asset('images/step01.png') }}">
         </div>
         <form method="POST" id="purchase_step_one" action="/purchase/step-one-submit">
@@ -31,22 +31,13 @@
                 <div class="formcat">
                     <div class="h-adr">
                         <h2 class="tl">買取キット発送先</h2>
-                        {{-- <p>
-                            <input type="checkbox" value="1" id="more_address" name="more_address">　
-                            <label>複数箇所の場合はチェックを入れてください。</label>
-                        </p> --}}
                         <div class="flow_waku1">
-                            <h3>
-                                <div class="chec">
-                                    <input type="checkbox" value="1" id="more_address" name="more_address">
-                                    <span>複数箇所の場合はチェックを入れてください。</span>
-                                </div>
-                            </h3>
-                            <p>※ 発送先が複数箇所ある場合は通信欄にこちらにチェックを入れていただき、「買取キット配送先リスト」を<a href="mailto:kddi_demo@mobile-ct.com">kddi_demo@mobile-ct.com</a>へメールでお送りください。</p>
-                            <div class="icon_xls">
-                                <a href="/pdf/買取キット配送先リスト.xlsx" target="_blank">買取キット配送先リスト.xlsx（ダウンロード）</a>
-                            </div>
-
+                        <h3><div class="chec">  <input type="checkbox" value="1" id="more_address" name="more_address">　<span><label>複数箇所の場合はチェックを入れてください。</label></span></div>
+                        </h3>
+                        <p>※ 発送先が複数箇所ある場合は通信欄にこちらにチェックを入れていただき、「買取キット配送先リスト」を<a href="mailto:kddi_demo@mobile-ct.com">kddi_demo@mobile-ct.com</a>へメールでお送りください。</p>
+                        <div class="icon_xls">
+                        <a href="{{ asset('pdf/買取キット配送先リスト.xlsx') }}" target="_blank" download>買取キット配送先リスト.xlsx（ダウンロード）</a>
+                        </div>
                         </div>
 
                         <div id="information">
@@ -128,14 +119,12 @@
 
                 <div class="formcat">
                     <h2 class="tl">買取機種情報</h2>
-
                     <div class="flow_waku1">
-                        <p>※ 台数はおおよそで構いません。<br>※ ４機種以上ある場合は通信欄にその旨ご記入いただき、「発送端末リスト」を<a href="mailto:kddi_demo@mobile-ct.com">kddi_demo@mobile-ct.com</a>へメールでお送りください。</p>
-                        <div class="icon_xls">
-                            <a href="/pdf/発送端末リスト.xlsx" target="_blank">発送端末リスト.xlsx（ダウンロード）</a>
-                        </div>
+                    <p>※ 台数はおおよそで構いません。<br>※ ４機種以上ある場合は通信欄にその旨ご記入いただき、「発送端末リスト」を<a href="mailto:kddi_demo@mobile-ct.com">kddi_demo@mobile-ct.com</a>へメールでお送りください。</p>
+                    <div class="icon_xls">
+                    <a href="{{ asset('pdf/発送端末リスト.xlsx') }}" target="_blank" download>発送端末リスト.xlsx（ダウンロード）</a>
                     </div>
-
+                    </div>
                     <dl>
                         <dt><label>機種名1／台数<span class="required">必須</span></label></dt>
                         <dd>
