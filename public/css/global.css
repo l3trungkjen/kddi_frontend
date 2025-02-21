@@ -1,0 +1,20 @@
+
+form button {
+  cursor: pointer;
+  border: none;
+}
+
+form .error {
+  color: #ff0000;
+  margin-top: 5px;
+}
+
+form .success {
+  color: #22ad22;
+  margin-top: 5px;
+}
+
+#agree_terms-error {
+  position: absolute;
+  margin-top: 35px;
+}
