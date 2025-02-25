@@ -7,6 +7,9 @@
     <li class="breadcrumb-item"><a href="/base">TOP</a></li>
     <li class="breadcrumb-item">お客様情報登録の流れ</li>
   </ul>
+  <div class="logout" bis_skin_checked="1">
+    <a href="/auth/logout">ログアウト</a>
+  </div>
 @endsection
 
 @section('breadcrumb2')

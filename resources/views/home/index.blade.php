@@ -10,6 +10,9 @@
       <li class="breadcrumb-item">TOP</li>
     @endif
   </ul>
+  <div class="logout" bis_skin_checked="1">
+    <a href="/auth/logout">ログアウト</a>
+  </div>
 @endsection
 
 @section('content')
