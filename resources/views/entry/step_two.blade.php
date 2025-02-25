@@ -7,6 +7,9 @@
     <li class="breadcrumb-item"><a href="/base">TOP</a></li>
     <li class="breadcrumb-item">お客様情報登録：入力内容の確認</li>
   </ul>
+  <div class="logout" bis_skin_checked="1">
+    <a href="/auth/logout">ログアウト</a>
+  </div>
 @endsection
 
 @section('breadcrumb2')

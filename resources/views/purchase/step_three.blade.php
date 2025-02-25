@@ -11,6 +11,9 @@
         @endif
         <li class="breadcrumb-item">買取お申込み：送信完了</li>
     </ul>
+    <div class="logout" bis_skin_checked="1">
+        <a href="/auth/logout">ログアウト</a>
+    </div>
 @endsection
 
 @section('breadcrumb2')
