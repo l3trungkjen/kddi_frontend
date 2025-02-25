@@ -4,7 +4,11 @@
     <ul class="breadcrumb">
         <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
         {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIご紹介者様ページ</a></li> --}}
-        <li class="breadcrumb-item"><a href="/base">基本ページ</a></li>
+        @if (isset($user))
+            <li class="breadcrumb-item"><a href="/base">個別TOP</a></li>
+        @else
+            <li class="breadcrumb-item"><a href="/base">TOP</a></li>
+        @endif
         <li class="breadcrumb-item">買取お申込み</li>
     </ul>
 @endsection
@@ -13,7 +17,11 @@
     <ul class="breadcrumb">
         <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
         {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIご紹介者様ページ</a></li> --}}
-        <li class="breadcrumb-item"><a href="/base">基本ページ</a></li>
+        @if (isset($user))
+            <li class="breadcrumb-item"><a href="/base">個別TOP</a></li>
+        @else
+            <li class="breadcrumb-item"><a href="/base">TOP</a></li>
+        @endif
         <li class="breadcrumb-item">買取お申込み</li>
     </ul>
 @endsection
@@ -34,9 +42,9 @@
                         <div class="flow_waku1">
                         <h3><div class="chec">  <input type="checkbox" value="1" id="more_address" name="more_address">　<span><label>複数箇所の場合はチェックを入れてください。</label></span></div>
                         </h3>
-                        <p>※ 発送先が複数箇所ある場合は通信欄にこちらにチェックを入れていただき、「買取キット配送先リスト」を<a href="mailto:kddi_demo@mobile-ct.com">kddi_demo@mobile-ct.com</a>へメールでお送りください。</p>
+                        <p>※ 発送先が複数箇所ある場合はこちらにチェックを入れていただき、「買取キット配送先リスト」を<a href="mailto:kddi_demo@mobile-ct.com">kddi_demo@mobile-ct.com</a>へメールでお送りください。</p>
                         <div class="icon_xls">
-                        <a href="{{ asset('pdf/買取キット配送先リスト.xlsx') }}" target="_blank" download>買取キット配送先リスト.xlsx（ダウンロード）</a>
+                        <a href="{{ env('APP_ENV') == 'production' ? secure_asset('pdf/買取キット配送先リスト.xlsx') : asset('pdf/買取キット配送先リスト.xlsx') }}" target="_blank" download>買取キット配送先リスト.xlsx（ダウンロード）</a>
                         </div>
                         </div>
 
@@ -122,7 +130,7 @@
                     <div class="flow_waku1">
                     <p>※ 台数はおおよそで構いません。<br>※ ４機種以上ある場合は通信欄にその旨ご記入いただき、「発送端末リスト」を<a href="mailto:kddi_demo@mobile-ct.com">kddi_demo@mobile-ct.com</a>へメールでお送りください。</p>
                     <div class="icon_xls">
-                    <a href="{{ asset('pdf/発送端末リスト.xlsx') }}" target="_blank" download>発送端末リスト.xlsx（ダウンロード）</a>
+                    <a href="{{ env('APP_ENV') == 'production' ? secure_asset('pdf/発送端末リスト.xlsx') : asset('pdf/発送端末リスト.xlsx') }}" target="_blank" download>発送端末リスト.xlsx（ダウンロード）</a>
                     </div>
                     </div>
                     <dl>
@@ -207,6 +215,13 @@
                     },
                     number_units_1: {
                         required: true,
+                        digits: true,
+                    },
+                    number_units_2: {
+                        digits: true,
+                    },
+                    number_units_3: {
+                        digits: true,
                     },
                 },
                 messages: {
@@ -241,6 +256,13 @@
                     },
                     number_units_1: {
                         required: "[台数]を入力してください。",
+                        digits: "[台数]数字を入力してください。",
+                    },
+                    number_units_2: {
+                        digits: "[台数]数字を入力してください。",
+                    },
+                    number_units_3: {
+                        digits: "[台数]数字を入力してください。",
                     },
                     contact_name: {
                         required: "[お名前]を入力してください。",

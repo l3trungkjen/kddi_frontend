@@ -4,7 +4,11 @@
     <ul class="breadcrumb">
         <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
         {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIご紹介者様ページ</a></li> --}}
-        <li class="breadcrumb-item"><a href="/base">基本ページ</a></li>
+        @if (isset($user))
+            <li class="breadcrumb-item"><a href="/base">個別TOP</a></li>
+        @else
+            <li class="breadcrumb-item"><a href="/base">TOP</a></li>
+        @endif
         <li class="breadcrumb-item">買取お申込み：送信完了</li>
     </ul>
 @endsection
@@ -13,7 +17,11 @@
     <ul class="breadcrumb">
         <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
         {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li> --}}
-        <li class="breadcrumb-item"><a href="/base">基本ページ</a></li>
+        @if (isset($user))
+            <li class="breadcrumb-item"><a href="/base">個別TOP</a></li>
+        @else
+            <li class="breadcrumb-item"><a href="/base">TOP</a></li>
+        @endif
         <li class="breadcrumb-item">買取お申込み：送信完了</li>
     </ul>
 @endsection
