@@ -23,7 +23,7 @@
     <h1 class="heading-level-1">買取お申込み</h1>
 
     <div class="step">
-        <img src="{{ asset('images/step01.png') }}">
+        <img src="{{ asset('images/step02.png') }}">
     </div>
     <form method="POST" id="purchase_step_two" action="/purchase/step-two-submit">
         @csrf

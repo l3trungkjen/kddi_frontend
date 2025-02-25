@@ -3,8 +3,8 @@
 @section('breadcrumb')
   <ul class="breadcrumb">
     <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-    {{-- <li class="breadcrumb-item"><a href="/login">KDDIデモ機買取施策</a></li> --}}
-    <li class="breadcrumb-item"><a href="/base">TOP</a></li>
+    {{-- <li class="breadcrumb-item"><a href="/login">KDDIご紹介者様ページ</a></li> --}}
+    <li class="breadcrumb-item"><a href="/base">基本ページ</a></li>
     <li class="breadcrumb-item">お客様情報登録</li>
   </ul>
 @endsection
@@ -13,7 +13,7 @@
   <ul class="breadcrumb">
     <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
     {{-- <li class="breadcrumb-item"><a href="/login">KDDIご紹介者様ページ</a></li> --}}
-    <li class="breadcrumb-item"><a href="/base">TOP</a></li>
+    <li class="breadcrumb-item"><a href="/base">基本ページ</a></li>
     <li class="breadcrumb-item">お客様情報登録</li>
   </ul>
 @endsection
@@ -22,7 +22,7 @@
   <main>
     <h1 class="heading-level-1">お客様情報登録</h1>
     <div class="step">
-        <img src="{{ asset('images/step01.png') }}">
+        <img src="{{ asset('images/step02.png') }}">
     </div>
     <form method="POST" id="entry_step_one" action="/entry/edit-step-two-submit">
       @csrf
@@ -142,7 +142,7 @@
               <input id="acd-check1" class="acd-check" type="checkbox">
               <label class="acd-label" for="acd-check1">中古端末買取利用規約</label>
               <div class="acd-content">
-                <OBJECT DATA="{{ asset('pdf/terms.html') }}" TYPE="text/plain" WIDTH="100%" HEIGHT="100%"></OBJECT>
+                <OBJECT DATA="{{ asset('pdf/中古端末買取り利用規約.pdf') }}" TYPE="text/plain" WIDTH="100%" HEIGHT="100%"></OBJECT>
               </div>
             </div>
             <div class="icon_other">

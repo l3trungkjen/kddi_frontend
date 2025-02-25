@@ -13,7 +13,7 @@
   <ul class="breadcrumb">
     <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
     {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li> --}}
-    <li class="breadcrumb-item"><a href="/base">個別TOP</a></li>
+    <li class="breadcrumb-item"><a href="/base">基本ページ</a></li>
     <li class="breadcrumb-item">買取価格</li>
   </ul>
 @endsection
@@ -150,5 +150,6 @@
 @endsection
 
 @section('script')
+    <script src="{{ env('APP_ENV') == 'production' ? secure_asset('js/bootstrap-4.0.0.js') : asset('js/bootstrap-4.0.0.js') }}"></script>
     <script src="{{ env('APP_ENV') == 'production' ? secure_asset('js/maker.js') : asset('js/maker.js') }}"></script>
 @endsection

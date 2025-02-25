@@ -3,7 +3,7 @@
 @section('breadcrumb')
   <ul class="breadcrumb">
     <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-    {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li> --}}
+    {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIご紹介者様ページ</a></li> --}}
     <li class="breadcrumb-item"><a href="/base">TOP</a></li>
     <li class="breadcrumb-item">お客様情報登録：入力内容の確認</li>
   </ul>
@@ -12,7 +12,7 @@
 @section('breadcrumb2')
   <ul class="breadcrumb">
     <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-    {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li> --}}
+    {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIご紹介者様ページ</a></li> --}}
     <li class="breadcrumb-item"><a href="/base">TOP</a></li>
     <li class="breadcrumb-item">お客様情報登録：入力内容の確認</li>
   </ul>
@@ -185,7 +185,7 @@
               <input id="acd-check1" class="acd-check" type="checkbox">
               <label class="acd-label" for="acd-check1">中古端末買取利用規約</label>
               <div class="acd-content">
-                <OBJECT DATA="{{ asset('pdf/terms.html') }}" TYPE="text/plain" WIDTH="100%" HEIGHT="100%"></OBJECT>
+                <OBJECT DATA="{{ asset('pdf/中古端末買取り利用規約.pdf') }}" TYPE="text/plain" WIDTH="100%" HEIGHT="100%"></OBJECT>
               </div>
             </div>
 

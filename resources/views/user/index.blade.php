@@ -3,14 +3,14 @@
 @section('breadcrumb')
   <ul class="breadcrumb">
     <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-    <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li>
-    <li class="breadcrumb-item">個別TOP</li>
+    <li class="breadcrumb-item"><a href="01_login.html">KDDIご紹介者様ページ</a></li>
+    <li class="breadcrumb-item">基本ページ</li>
   </ul>
 @endsection
 
 @section('content')
   <main>
-    <h1 class="heading-level-1">個別TOP</h1>
+    <h1 class="heading-level-1">基本ページ</h1>
     <div class="categories">
       <ul>
         <li><a href="/purchase/flow" class="arrowMenu">買取申込の流れ</a></li>

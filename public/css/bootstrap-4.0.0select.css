@@ -44,12 +44,27 @@ outline: 0;
 
 .modal h3{
 font-weight: bold;
-font-size: 1.74rem;
+font-size: 1.84rem;
+margin: 0 0 2.0rem 0;
+}
+.modal .rank{
+clear: both;
+border-bottom: 1px solid #ccc;
+padding: 0.75rem 0;
+}
+
+.modal .rank h4{
+font-weight: bold;
+font-size: 1.34rem;
+display: inline-block;
+width: 15%;
+vertical-align: top;
 margin: 0;
 }
-.modal h4{
-font-weight: bold;
-font-size: 1.24rem;
+.modal .rank p{
+display: inline-block;
+width: 80%;
+line-height: 1.75;
 }
 .modal-open .modal {
 overflow-x: hidden;
@@ -95,7 +110,7 @@ display: flex;
 -webkit-box-direction: normal;
 -ms-flex-direction: column;
 flex-direction: column;
-width: 49.6rem;
+width: 69.6rem;
 pointer-events: auto;
 background-color: #feffee;
 background-clip: padding-box;

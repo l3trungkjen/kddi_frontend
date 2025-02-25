@@ -3,8 +3,8 @@
 @section('breadcrumb')
   <ul class="breadcrumb">
     <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-    {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li> --}}
-    <li class="breadcrumb-item"><a href="/base">TOP</a></li>
+    {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIご紹介者様ページ</a></li> --}}
+    <li class="breadcrumb-item"><a href="/base">基本ページ</a></li>
     <li class="breadcrumb-item">お客様情報登録：送信完了</li>
   </ul>
 @endsection
@@ -12,8 +12,8 @@
 @section('breadcrumb2')
   <ul class="breadcrumb">
     <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-    {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li> --}}
-    <li class="breadcrumb-item"><a href="/base">TOP</a></li>
+    {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIご紹介者様ページ</a></li> --}}
+    <li class="breadcrumb-item"><a href="/base">基本ページ</a></li>
     <li class="breadcrumb-item">お客様情報登録：送信完了</li>
   </ul>
 @endsection
