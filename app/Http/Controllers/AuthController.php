@@ -99,4 +99,11 @@ class AuthController extends Controller
                 ->withErrors(['login_error' => 'メールアドレスまたはパスワードが間違っています。']);
         }
     }
+
+    public function logout(Request $request)
+    {
+        Cookie::queue(Cookie::forget('token'));
+        Cookie::queue(Cookie::forget('user_token'));
+        return redirect()->route('login');
+    }
 }
