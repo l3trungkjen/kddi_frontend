@@ -1,6 +1,5 @@
 function showContent(appId) {
   var selectedValue = document.getElementById("selectBox").value;
-  console.log('selectedValue', selectedValue)
   $('#category_list').hide();
   $.ajax({
     url: `/api/kintone/get-record?app-id=${appId}&query=カテゴリ in ("${selectedValue}")`,
@@ -11,14 +10,18 @@ function showContent(appId) {
       tbody.empty();
 
       records.forEach(record => {
+        const formattedA = Number(record.Aランク.value).toLocaleString("en-US");
+        const formattedB = Number(record.Bランク.value).toLocaleString("en-US");
+        const formattedC = Number(record.Cランク.value).toLocaleString("en-US");
+        const formattedJ = Number(record.Jランク.value).toLocaleString("en-US");
         let row = `
           <tr>
             <td>${record.機種名.value}</td>
             <td>${record.容量.value}GB</td>
-            <td class="price">${record.Aランク.value} 円</td>
-            <td class="price">${record.Bランク.value} 円</td>
-            <td class="price">${record.Cランク.value} 円</td>
-            <td class="price">${record.Jランク.value} 円</td>
+            <td class="price">${formattedA} 円</td>
+            <td class="price">${formattedB} 円</td>
+            <td class="price">${formattedC} 円</td>
+            <td class="price">${formattedJ} 円</td>
           </tr>
         `;
 

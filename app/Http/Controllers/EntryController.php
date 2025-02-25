@@ -24,6 +24,7 @@ class EntryController extends Controller
     // 05_flow-entry.html
     public function flow(Request $request)
     {
+        $this->user = $this->user_token;
         return view('entry.flow', $this->data);
     }
 
@@ -158,7 +159,7 @@ class EntryController extends Controller
 
     public function editStepOne(Request $request)
     {
-        $email = $this->user_token;
+        $this->user = $email = $this->user_token;
         if ($email) {
             $query = "法人メールアドレス1=\"$email\" limit 1";
             $kintone = new KintoneRepository($this->appId);

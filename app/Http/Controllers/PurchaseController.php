@@ -25,22 +25,39 @@ class PurchaseController extends Controller
     // 07_pricelist.html
     public function priceList(Request $request)
     {
+        $this->user = $this->user_token;
         $this->purchaseId = $this->appPurchaseId;
         $this->currentDate = Carbon::now()->format('Y年m月d日');
         $this->nextMonth = Carbon::now()->addMonth()->format('Y年m月') . "末日";
+
+        $kintone = new KintoneRepository($this->appPurchaseId);
+        $data = $kintone->getRecord("");
+        $groupedData = [];
+        foreach ($data["records"] as $record) {
+            $category = $record["カテゴリ"]["value"];
+            $groupedData[$category] = $category;
+        }
+        $result = [];
+        foreach ($groupedData as $key => $value) {
+            $result[] = ["key" => $key, "value" => $value];
+        }
+        // dd($result);
+        $this->categories = $result;
+
         return view('purchase.price_list', $this->data);
     }
 
     // 08_flow-purchase.html
     public function flow(Request $request)
     {
+        $this->user = $this->user_token;
         return view('purchase.flow', $this->data);
     }
 
     // 09_purchase.html
     public function stepOne(Request $request)
     {
-        $email = $this->user_token;
+        $this->user = $email = $this->user_token;
         if ($email) {
             $query = "法人メールアドレス1=\"$email\" limit 1";
             $kintone = new KintoneRepository($this->appMemberId);
@@ -48,6 +65,8 @@ class PurchaseController extends Controller
             if (isset($data['records']) && count($data['records']) > 0) {
                 $this->member = $data['records'][0];
             }
+        } else {
+            return redirect()->route('auth.loginUser');
         }
 
         return view('purchase.step_one', $this->data);
@@ -68,6 +87,7 @@ class PurchaseController extends Controller
     // 09_purchase-step2.html
     public function stepTwo(Request $request)
     {
+        $this->user = $this->user_token;
         $data = session('step_one_data');
         $this->purchase = $purchase = isset($data) ? (object) $data : null;
         if (!$purchase) {
@@ -102,6 +122,7 @@ class PurchaseController extends Controller
             // dd($request->more_address);
             $name = isset($contact_name) ? $contact_name : $request->contact_name;
             $data = [
+                "メールアドレス" => ["value" => isset($email) ? $email : ""],
                 "買取キット発送先" => ["value" => isset($request->more_address) ? $request->more_address : "0"],
                 "法人名" => ["value" => isset($company_name) ? $company_name : $request->company_name],
                 "郵便番号" => ["value" => isset($post_code) ? $post_code : $request->post_code],
@@ -121,6 +142,7 @@ class PurchaseController extends Controller
                 "通信欄" => ["value" => $request->message],
                 "法人名カナ" => ["value" => $request->company_name_kana],
             ];
+            // dd($data);
             $kintone = new KintoneRepository($this->appId);
             $purchase = $kintone->addRecord($data);
 
@@ -143,6 +165,7 @@ class PurchaseController extends Controller
     // 09_purchase-step3.html
     public function stepThree(Request $request)
     {
+        $this->user = $this->user_token;
         return view('purchase.step_three', $this->data);
     }
 }

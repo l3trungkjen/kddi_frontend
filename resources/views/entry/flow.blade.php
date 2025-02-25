@@ -21,12 +21,19 @@
 @section('content')
   <main>
     <h1 class="heading-level-1">お客様情報登録の流れ</h1>
+
     <a href="/entry/step-one" class="button submit-button">初回登録はこちら</a>
+
     <div class="flow">
       <h2 class="tl">必要情報のご入力、お申込み</h2>
       <div class="flow_detail">
       <div class="flow_ph"><img src="{{ asset('images/flow01.jpg') }}"></div>
-      <div class="flow_pt"><p><a href="06_entry.html">お申込みフォーム</a>に必要情報を入力し、お申込みください。必要な情報を送信いただくと、受付完了メールをお送りいたします。</p>
+      <div class="flow_pt"><p>
+        @if (isset($user))
+          <a href="/entry/step-one">お申込みフォーム</a>
+        @endif
+        に必要情報を入力し、お申込みください。必要な情報を送信いただくと、受付完了メールをお送りいたします。
+      </p>
       </div>
       </div>
         <div class="flow_arrow">
@@ -73,7 +80,9 @@
         <p>お客様登録完了になります</p>
       </div>
     </div>
-    <a href="/entry/step-one" class="button submit-button">初回登録はこちら</a>
+    @if (isset($user))
+      <a href="/entry/step-one" class="button submit-button">初回登録はこちら</a>
+    @endif
     <div class="corp">
       <h3>会社情報</h3>
       <table>

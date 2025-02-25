@@ -16,9 +16,10 @@ class HomeController extends Controller
     // 02_base.html
     public function index(Request $request)
     {
-        if (!$this->token) {
+        if (!$this->token && !$this->user_token) {
             return redirect('/login');
         }
+        $this->user = $this->user_token;
         return view('home.index', $this->data);
     }
 }

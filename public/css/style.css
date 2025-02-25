@@ -811,7 +811,7 @@ border: 0;
 @media screen and (max-width: 1920px) {
 .submit-button {
 position: relative;
-width: 40vw;
+width: 100%;
 margin: 20px auto 0;
 padding: 20px 0;
 font-size: 1.74rem;
