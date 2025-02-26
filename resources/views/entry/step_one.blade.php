@@ -224,6 +224,14 @@
   <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
   <script>
     $(function() {
+      $.validator.addMethod("checkLength", function(value, element) {
+        return value.length === 12 || value.length === 13;
+      }, "The string must be exactly 12 or 13 characters long.");
+
+      $.validator.addMethod("containsDash", function(value, element) {
+        return value.includes("-");
+      }, "String must contain at least one '-' character.");
+
       $("#entry_step_one").validate({
         rules: {
           company_name: {
@@ -250,7 +258,8 @@
           },
           telephone: {
             required: true,
-            // digits: true,
+            checkLength: true,
+            containsDash: true,
           },
           email: {
             required: true,
@@ -307,7 +316,8 @@
           },
           contact_telephone: {
             required: true,
-            // digits: true,
+            checkLength: true,
+            containsDash: true,
           },
           contact_birthday: {
             required: true,
@@ -344,7 +354,8 @@
           },
           telephone: {
             required: "[電話番号]を入力してください。",
-            // digits: "[電話番号]数字を入力してください。",
+            checkLength: "［電話番号必須］は半角数字、ハイフンを入れ12文字か13文字で入力してください。",
+            containsDash: "［電話番号必須］は半角数字、ハイフンを入れ12文字か13文字で入力してください。",
           },
           email: {
             required: "[メールアドレス]を入力してください。",
@@ -401,7 +412,8 @@
           },
           contact_telephone: {
             required: "[電話番号]を入力してください。",
-            // digits: "[電話番号]数字を入力してください。",
+            checkLength: "［電話番号必須］は半角数字、ハイフンを入れ12文字か13文字で入力してください。",
+            containsDash: "［電話番号必須］は半角数字、ハイフンを入れ12文字か13文字で入力してください。",
           },
           contact_birthday: {
             required: "[生年月日]を入力してください。",
@@ -445,15 +457,15 @@
         $(this).val(value);
       });
 
-      $('#telephone, #contact_telephone').on('input', function () {
-        let value = $(this).val().replace(/\D/g, '');
-        if (value.length > 3 && value.length <= 7) {
-          value = value.slice(0, 3) + '-' + value.slice(3);
-        } else if (value.length > 7) {
-          value = value.slice(0, 3) + '-' + value.slice(3, 7) + '-' + value.slice(7, 11);
-        }
-        $(this).val(value);
-      });
+      // $('#telephone, #contact_telephone').on('input', function () {
+      //   let value = $(this).val().replace(/\D/g, '');
+      //   if (value.length > 3 && value.length <= 7) {
+      //     value = value.slice(0, 3) + '-' + value.slice(3);
+      //   } else if (value.length > 7) {
+      //     value = value.slice(0, 3) + '-' + value.slice(3, 7) + '-' + value.slice(7, 11);
+      //   }
+      //   $(this).val(value);
+      // });
 
       $('#company_name_kana').on('input', function () {
         let value = $(this).val();
