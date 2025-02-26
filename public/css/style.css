@@ -99,6 +99,7 @@ header {width: 96%;}
 margin: 0 auto;
 padding: 0px;
 width: 89.6rem;
+position: relative;
 }
 @media screen and (max-width: 1024px) {
 .roof  {width: 96%;}
@@ -1726,4 +1727,23 @@ border-top: none;
 .error{
 color: red;
 display: block;
+}
+
+.logout {
+    position: absolute;
+    top: 17px;
+    right: 0;
+    font-size: 12px;
+    text-align: right;
+    font-weight: bold;
+    background-image: url(../images/icon_out.png);
+    background-repeat: no-repeat;
+    background-size: 30px auto;
+    padding: 5px 0 0 35px;
+    height: 40px;
+    margin: 0 0 0.5rem 0;
+}
+
+.logout a {
+  color: #009098;
 }
