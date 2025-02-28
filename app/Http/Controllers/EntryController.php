@@ -115,7 +115,7 @@ class EntryController extends Controller
                 "法人部署名" => ["value" => $request->department],
                 "法人電話番号" => ["value" => $request->telephone],
                 "法人メールアドレス1" => ["value" => $request->email],
-                "法人メールアドレス2" => ["value" => $request->confirm_email],
+                // "法人メールアドレス2" => ["value" => $request->confirm_email],
                 "法人インボイス" => ["value" => $request->business],
                 "法人インボイス登録番号" => ["value" => $request->registration_number],
                 "銀行名" => ["value" => $request->bank_name],
