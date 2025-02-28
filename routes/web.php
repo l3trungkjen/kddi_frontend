@@ -7,7 +7,8 @@ use App\Http\Controllers\EntryController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\TermController;
 
-Route::get('/base', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/base', [HomeController::class, 'base'])->name('home');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/submit-login', [AuthController::class, 'submitLogin'])->name('submitLogin');
