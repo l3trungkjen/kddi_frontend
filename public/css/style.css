@@ -15,7 +15,14 @@ font-stretch: normal;
 line-height: 1.4;
 letter-spacing: normal;
 background: #f5fafa;
+min-height: 100vh;
+padding: 0 0 120px 0;
 }
+
+@media screen and (max-width: 1027px) {
+body {padding: 0 0 220px 0;}}
+@media screen and (max-width: 550px) {
+body {padding: 0 0 250px 0;}}
 
 ul,
 ol { list-style: none;}
@@ -37,7 +44,7 @@ content: '＞';
 .bold { font-weight: bold; }
 
 .text-color-red    { color: #e00; }
-.text-color-green  { color: #009098; }
+.text-color-green  { color: #199B83; }
 .text-color-gray   { color: #666; }
 .text-color-black  { color: #333; }
 
@@ -140,13 +147,13 @@ color: #551a8b;
 * mount
 ---------------------------------------------------- **/
 .mount {
-margin: 2rem auto;
+margin: 2rem auto 6rem auto;
 width: 89.6rem;
 border: 1px solid rgb(245, 247, 250);
 border-radius: 0.8rem;
 position: relative;
 background-color: rgb(255, 255, 255);
-min-height: 52.3rem;
+min-height: 42.3rem;
 }
 
 @media screen and (max-width: 1024px) {
@@ -168,7 +175,7 @@ main {padding: 2rem;}
 }
 main a {
 display: inline-block;
-color: #009098;
+color: #199B83;
 }
 /** -------------------------------------------------
 * heading title
@@ -311,8 +318,8 @@ a.mailto:active { color: #ff8000; }
 div.guidebox  {
 margin:0 auto;
 padding:10px 0;
-background: #009098;
-border: 1px solid  #009098;
+background: #199B83;
+border: 1px solid  #199B83;
 font-weight:bold;
 color: #FFF;
 /*width: 720px;*/
@@ -521,7 +528,7 @@ height: 16px;
 transform: translateY(-50%);
 content: '';
 border-radius: 16px;
-background: #009098;
+background: #199B83;
 }
 */
 /* checkbox
@@ -559,8 +566,8 @@ display: block;
 width: 8px;
 height: 16px;
 margin-top: -13px;
-border-right: 5px solid #009098;
-border-bottom: 5px solid #009098;
+border-right: 5px solid #199B83;
+border-bottom: 5px solid #199B83;
 -webkit-transform: rotate(45deg);
 transform: rotate(45deg);
 content: '';
@@ -583,7 +590,7 @@ textarea::-webkit-scrollbar-button:start:hover{background:url(../images/up_hover
 textarea::-webkit-scrollbar-button:end{width:15px; height:15px; background:url(../images/down_default.png)}
 textarea::-webkit-scrollbar-button:end:hover{background:url(../images/down_hover.png)}
 textarea::-webkit-scrollbar-track{background:#f2f2f2;}
-textarea::-webkit-scrollbar-thumb{background:#009098;}
+textarea::-webkit-scrollbar-thumb{background:#199B83;}
 
 /* terms */
 .terms {
@@ -602,7 +609,7 @@ border: 1px solid #ccc;
 .terms::-webkit-scrollbar-button:end{background:url(../images/down_default.png)}
 .terms::-webkit-scrollbar-button:end:hover{background:url(../images/down_hover.png)}
 .terms::-webkit-scrollbar-track{background:#f2f2f2;}
-.terms::-webkit-scrollbar-thumb{background:#009098;}
+.terms::-webkit-scrollbar-thumb{background:#199B83;}
 
 .terms-dl{
 font-size: 14px;
@@ -812,7 +819,7 @@ border: 0;
 @media screen and (max-width: 1920px) {
 .submit-button {
 position: relative;
-width: 100%;
+width: 40vw;
 margin: 20px auto 0;
 padding: 20px 0;
 font-size: 1.74rem;
@@ -824,7 +831,7 @@ background: linear-gradient(to bottom, #f7a728 0%, #f28b17 50%, #eb611c 50%, #ee
 border: 0;
 }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 764px) {
 .submit-button {width: 100%;}
 }
 .submit-button::after {
@@ -877,7 +884,7 @@ border-right: solid 3px #999;
 width: 640px;
 margin: 46px auto 0;
 box-sizing: border-box;
-border: solid 1px #009098;
+border: solid 1px #199B83;
 text-align: center;
 }
 
@@ -886,7 +893,7 @@ padding: 7px 0;
 font-size: 1.3rem;
 font-weight: bold;
 color: #fff;
-background: #009098;
+background: #199B83;
 }
 
 .contact-lists {
@@ -951,7 +958,7 @@ color: #333;
 position: relative;
 margin-top: 34px;
 padding: 20px;
-border: solid 1px #009098;
+border: solid 1px #199B83;
 }
 
 .border-box-red {
@@ -966,7 +973,7 @@ position: absolute;
 top: -11px;
 left: 20px;
 font-size: 1.3rem;
-color: #009098;
+color: #199B83;
 font-weight: bold;
 background: #fff;
 }
@@ -1047,10 +1054,15 @@ content: url(../images/icon_modal_trigger.png);
 /** -------------------------------------------------
 * footer
 ---------------------------------------------------- **/
+
 footer {
 margin-top: 50px;
-background: #009098;
+background: #199B83;
 color: #fff;
+position: absolute;
+bottom: 0;
+width: 100%;
+height: 110px;
 }
 
 footer a { color: #fff;}
@@ -1082,6 +1094,10 @@ border-left: solid 1px #fff;
 }
 
 @media screen and (max-width: 1024px) {
+footer {
+margin-top: 50px;
+height: 180px;
+}
 .footer-inner {width: 96%;}
 .footer-left {
 width: 100%;
@@ -1093,6 +1109,12 @@ padding-left: 0;
 width: 100%;
 display: block;
 border-left: none;
+}
+}
+@media screen and (max-width: 550px) {
+footer {
+margin-top: 50px;
+height: 220px;
 }
 }
 /** -------------------------------------------------
@@ -1179,10 +1201,10 @@ margin-top: -5px;
 content: '';
 }
 .categories ul li:hover {
-border: 3px solid #009098;
+border: 3px solid #199B83;
 }
 .categories ul li a:hover {
-color: #009098;
+color: #199B83;
 }
 
 
@@ -1194,8 +1216,8 @@ border-top: solid 3px #000;
 border-right: solid 3px #000;
 }
 .arrowMenu:hover::after {
-border-top: solid 3px #009098;
-border-right: solid 3px #009098;
+border-top: solid 3px #199B83;
+border-right: solid 3px #199B83;
 }
 
 .flow {
@@ -1281,8 +1303,8 @@ font-weight: bold;
 font-size: 1.74rem;
 }
 .tl{
-border-bottom: solid 6px #009098;
-color: #009098;
+border-bottom: solid 6px #199B83;
+color: #199B83;
 text-align: left;
 padding: 0 0 0.5vw 0;
 font-size: 1.65em;
@@ -1310,13 +1332,13 @@ font-weight: bold;
 }
 
 .flow_waku1{
-border: 3px solid #009098;
+border: 3px solid #199B83;
 margin: 1rem 0;
 padding: 0;
 border-radius: 4px;
 }
 .flow_waku1 h3{
-background-color: #009098;
+background-color: #199B83;
 color: #ffffff;
 font-size: 1.40rem;
 margin: 0;
@@ -1366,13 +1388,13 @@ display: block;
 }
 
 .flow_waku3{
-border: 3px solid #009098;
+border: 3px solid #199B83;
 margin: 1rem 0;
 padding: 0;
 border-radius: 4px;
 }
 .flow_waku3 h3{
-background-color: #009098;
+background-color: #199B83;
 color: #ffffff;
 font-size: 1.40rem;
 margin: 0;
@@ -1393,13 +1415,13 @@ font-feature-settings: "palt";
 margin: 0 0 1.5rem 1.5rem;
 }
 .flow_waku4{
-border: 3px solid #009098;
+border: 3px solid #199B83;
 margin: 1rem 0;
 padding: 0;
 border-radius: 4px;
 }
 .flow_waku4 h3{
-background-color: #009098;
+background-color: #199B83;
 color: #ffffff;
 font-size: 1.40rem;
 margin: 0;
@@ -1496,9 +1518,9 @@ padding: 0;
 padding: 0 0 4.0rem 0;
 }
 .formarea .tl{
-border-left: solid 5px #009098;
+border-left: solid 5px #199B83;
 border-bottom: none;
-color: #009098;
+color: #199B83;
 text-align: left;
 padding: 0 0 0 0.5vw;
 font-size: 1.35em;
@@ -1730,20 +1752,20 @@ display: block;
 }
 
 .logout {
-    position: absolute;
-    top: 17px;
-    right: 0;
-    font-size: 12px;
-    text-align: right;
-    font-weight: bold;
-    background-image: url(../images/icon_out.png);
-    background-repeat: no-repeat;
-    background-size: 30px auto;
-    padding: 5px 0 0 35px;
-    height: 40px;
-    margin: 0 0 0.5rem 0;
+position: absolute;
+top: 17px;
+right: 0;
+font-size: 12px;
+text-align: right;
+font-weight: bold;
+background-image: url(../images/icon_out.png);
+background-repeat: no-repeat;
+background-size: 30px auto;
+padding: 5px 0 0 35px;
+height: 40px;
+margin: 0 0 0.5rem 0;
 }
 
 .logout a {
-  color: #009098;
+color: #199B83;
 }

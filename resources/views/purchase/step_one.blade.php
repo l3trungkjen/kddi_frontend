@@ -3,7 +3,8 @@
 @section('breadcrumb')
     <ul class="breadcrumb">
         <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-        {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIご紹介者様ページ</a></li> --}}
+        <li class="breadcrumb-item"><a href="/login">KDDI店頭デモ機買取ご紹介ページ </a></li>
+        {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDI店頭デモ機買取ご紹介ページ </a></li> --}}
         @if (isset($user))
             <li class="breadcrumb-item"><a href="/base">個別TOP</a></li>
         @else
@@ -19,7 +20,8 @@
 @section('breadcrumb2')
     <ul class="breadcrumb">
         <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-        {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIご紹介者様ページ</a></li> --}}
+        <li class="breadcrumb-item"><a href="/login">KDDI店頭デモ機買取ご紹介ページ </a></li>
+        {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDI店頭デモ機買取ご紹介ページ </a></li> --}}
         @if (isset($user))
             <li class="breadcrumb-item"><a href="/base">個別TOP</a></li>
         @else
@@ -164,7 +166,7 @@
                     </dl>
 
                     <dl>
-                        <dt class="thin"><label>通信欄</label></dt>
+                        <dt><label>通信欄</label></dt>
                         <dd>
                             <textarea name="message" id="message" class="entry-input"></textarea>
                         </dd>

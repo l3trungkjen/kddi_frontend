@@ -3,6 +3,7 @@
 @section('breadcrumb')
     <ul class="breadcrumb">
         <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
+        <li class="breadcrumb-item"><a href="/login">KDDI店頭デモ機買取ご紹介ページ </a></li>
         {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li> --}}
         @if (isset($user))
             <li class="breadcrumb-item"><a href="/base">個別TOP</a></li>
@@ -19,6 +20,7 @@
 @section('breadcrumb2')
     <ul class="breadcrumb">
         <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
+        <li class="breadcrumb-item"><a href="/login">KDDI店頭デモ機買取ご紹介ページ </a></li>
         {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li> --}}
         @if (isset($user))
             <li class="breadcrumb-item"><a href="/base">個別TOP</a></li>
@@ -43,8 +45,11 @@
                 <div class="flow_pt">
                     <p>
                         @if (isset($user))
-                            <a href="/purchase/step-one">端末買取専用のお申込みフォーム</a>
+                            <a href="/purchase/step-one">
                         @endif
+                        端末買取専用のお申込みフォーム
+                        @if (isset($user))</a>  @endif
+
                         に必要情報を入力し、お申込みください。必要な情報を送信いただくと、受付完了メールをお送りいたします。
                     </p>
                 </div>
@@ -108,6 +113,8 @@
                             <dd>
                                 ネットワーク利用制限中の端末はお売りいただけません。
                             </dd>
+                            <dt>スマホ用電子証明書の失効</dt>
+                            <dd>スマホ用電子証明書をご利用の場合、失効手続きをお願いいたします。</dd>
                         </dl>
                     </div>
                 </div>
@@ -119,13 +126,12 @@
             <div class="flow_detail">
                 <div class="flow_ph"><img src="{{ asset('images/flow07.png') }}"></div>
                 <div class="flow_pt">
-                    <p>買取キットにお売りいただく携帯端末、送付明細票を同梱してください。
-                        梱包方法、送付明細票のご記入については、<a href="javascript:void(0)">「発送手順詳細」</a>をご覧ください。<br>
+                    <p>買取キットにお売りいただく携帯端末、送付明細票を同梱してください。<br>
                         梱包が完了しましたら、日本郵便に集荷依頼し、発送をお願いいたします。</p>
 
-                    <div class="icon_pdf">
+                  <!--  <div class="icon_pdf">
                         <a href="javascript:void(0)">発送手順詳細（PDF）</a>
-                    </div>
+                    </div>-->
 
 
                     <div class="flow_waku4">

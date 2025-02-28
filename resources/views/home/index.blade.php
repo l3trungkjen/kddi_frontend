@@ -3,6 +3,7 @@
 @section('breadcrumb')
   <ul class="breadcrumb">
     <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
+    <li class="breadcrumb-item"><a href="/login">KDDI店頭デモ機買取ご紹介ページ</a></li>
     {{-- <li class="breadcrumb-item"><a href="/login">KDDI店頭デモ機買取ご紹介ページ</a></li> --}}
     @if (isset($user))
       <li class="breadcrumb-item">個別TOP</li>

@@ -3,7 +3,7 @@
 @section('breadcrumb')
   <ul class="breadcrumb">
     <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
-    <li class="breadcrumb-item"><a href="/login">KDDIデモ機買取施策</a></li>
+    <li class="breadcrumb-item"><a href="/login">KDDI店頭デモ機買取ご紹介ページ</a></li>
     <li class="breadcrumb-item"><a href="/auth/login-user">個別ログイン</a></li>
     <li class="breadcrumb-item">パスワードをお忘れの方</li>
   </ul>

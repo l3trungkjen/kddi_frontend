@@ -2,8 +2,9 @@
 
 @section('breadcrumb')
   <ul class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/" target="_blank">ホーム</a></li>
-    {{-- <li class="breadcrumb-item"><a href="/login">KDDIご紹介者様ページ</a></li> --}}
+    <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
+    <li class="breadcrumb-item"><a href="/login">KDDI店頭デモ機買取ご紹介ページ </a></li>
+    {{-- <li class="breadcrumb-item"><a href="/login">KDDI店頭デモ機買取ご紹介ページ </a></li> --}}
     <li class="breadcrumb-item"><a href="/base">TOP</a></li>
     <li class="breadcrumb-item">お客様情報登録の流れ</li>
   </ul>
@@ -14,8 +15,9 @@
 
 @section('breadcrumb2')
   <ul class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/" target="_blank">ホーム</a></li>
-    {{-- <li class="breadcrumb-item"><a href="/login">KDDIご紹介者様ページ</a></li> --}}
+    <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
+    <li class="breadcrumb-item"><a href="/login">KDDI店頭デモ機買取ご紹介ページ </a></li>
+    {{-- <li class="breadcrumb-item"><a href="/login">KDDI店頭デモ機買取ご紹介ページ </a></li> --}}
     <li class="breadcrumb-item"><a href="/base">TOP</a></li>
     <li class="breadcrumb-item">お客様情報登録の流れ</li>
   </ul>
@@ -32,22 +34,19 @@
       <div class="flow_detail">
       <div class="flow_ph"><img src="{{ asset('images/flow01.jpg') }}"></div>
       <div class="flow_pt"><p>
-        @if (isset($user))
-          <a href="/entry/step-one">お申込みフォーム</a>
-        @endif
-        に必要情報を入力し、お申込みください。必要な情報を送信いただくと、受付完了メールをお送りいたします。
+<a href="/entry/step-one">お申込みフォーム</a>に必要情報を入力し、お申込みください。必要な情報を送信いただくと、受付完了メールをお送りいたします。
       </p>
       </div>
       </div>
         <div class="flow_arrow">
         <img src="{{ asset('images/arrow_bottom.png') }}">
       </div>
-      <h2 class="tl">本人限定受取郵便にて<br>買取申込受付票の受領</h2>
+      <h2 class="tl">本人限定受取郵便にて<br class="v_sm">買取申込受付票の受領</h2>
       <div class="flow_detail">
       <div class="flow_ph"><img src="{{ asset('images/flow02.jpg') }}"></div>
       <div class="flow_pt"><p>法人情報欄にご入力いただいた会社住所宛に、「買取申込受付票」を<span class="attention">本人限定受取郵便にてお送りいたします。</span><br>
       本人限定受取郵便が郵便局に届いたことを通知する、案内はがきが届きます。<br>
-      案内はがきが届きましたら、担当郵便局にご連絡していただき、<span class="attention">必ずご本様がお受け取りください。</span><br><br>
+      案内はがきが届きましたら、担当郵便局にご連絡していただき、<span class="attention">必ずご本人様がお受け取りください。</span><br><br>
       ※郵便物に記載された名あて人または差出人が指定した代理人一人に限り、郵便物をお渡しします。<br>
       （詳細は下記リンクにてご確認ください。）<br></p>
 

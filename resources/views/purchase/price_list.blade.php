@@ -3,6 +3,7 @@
 @section('breadcrumb')
     <ul class="breadcrumb">
         <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
+          <li class="breadcrumb-item"><a href="/login">KDDI店頭デモ機買取ご紹介ページ </a></li>
         {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDI店頭デモ機買取ご紹介ページ</a></li> --}}
         @if (isset($user))
             <li class="breadcrumb-item"><a href="/base">個別TOP</a></li>
@@ -19,6 +20,7 @@
 @section('breadcrumb2')
     <ul class="breadcrumb">
         <li class="breadcrumb-item"><a href="http://www.mobile-ct.co.jp/" target="_blank">ホーム</a></li>
+          <li class="breadcrumb-item"><a href="/login">KDDI店頭デモ機買取ご紹介ページ </a></li>
         {{-- <li class="breadcrumb-item"><a href="01_login.html">KDDIデモ機買取施策</a></li> --}}
         @if (isset($user))
             <li class="breadcrumb-item"><a href="/base">個別TOP</a></li>
@@ -59,7 +61,7 @@
                 <table id="table_categories">
                     <thead>
                         <tr>
-                            <th rowspan="2" class="prod">製品</th>
+                            <th rowspan="2" class="prod">機種名</th>
                             <th rowspan="2" class="vol">容量</th>
                             <th colspan="4">
                                 下取り価格目安<br>
@@ -67,10 +69,10 @@
                             </th>
                         </tr>
                         <tr>
-                            <th class="rank">A</th>
-                            <th class="rank">B</th>
-                            <th class="rank">C</th>
-                            <th class="rank">J</th>
+                            <th class="rank">Aランク</th>
+                            <th class="rank">Bランク</th>
+                            <th class="rank">Cランク</th>
+                            <th class="rank">Jランク</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -78,12 +80,12 @@
                     </tbody>
                     <thead>
                         <tr>
-                            <th rowspan="2" class="prod">製品</th>
+                            <th rowspan="2" class="prod">機種名</th>
                             <th rowspan="2" class="vol">容量</th>
-                            <th class="rank">A</th>
-                            <th class="rank">B</th>
-                            <th class="rank">C</th>
-                            <th class="rank">J</th>
+                            <th class="rank">Aランク</th>
+                            <th class="rank">Bランク</th>
+                            <th class="rank">Cランク</th>
+                            <th class="rank">Jランク</th>
                         </tr>
                         <tr>
                             <th colspan="4">
