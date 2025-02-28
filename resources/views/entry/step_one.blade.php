@@ -172,7 +172,7 @@
             </dl>
             <dl>
               <dt><label>電話番号<span class="required">必須</span></label></dt>
-              <dd><input required="required" type="text" class="entry-input" name="contact_telephone" id="contact_telephone"></dd>
+              <dd><input required="required" type="text" class="entry-input" name="contact_telephone" id="contact_telephone" size="13" maxlength="13"></dd>
             </dl>
             <dl>
               <dt><label>生年月日<span class="required">必須</span> <span class="notice">入力例：19900808</span></label></dt>
