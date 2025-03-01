@@ -72,7 +72,7 @@
             </dl>
             <dl>
               <dt><label>電話番号<span class="required">変更可</span></label></dt>
-              <dd><input required="required" type="text" class="entry-input" name="telephone" id="telephone" value="{{ $member['法人電話番号']['value'] }}"></dd>
+              <dd><input required="required" type="text" class="entry-input" name="telephone" id="telephone" value="{{ $member['法人電話番号']['value'] }}" size="13" maxlength="13"></dd>
             </dl>
             <dl>
               <dt><label>メールアドレス<span class="required">変更可</span></label></dt>
@@ -126,7 +126,7 @@
             </dl>
             <dl>
               <dt><label>電話番号<span class="required">変更可</span></label></dt>
-              <dd><input required="required" type="text" class="entry-input" name="contact_telephone" id="contact_telephone" value="{{ $member['個人電話番号']['value'] }}"></dd>
+              <dd><input required="required" type="text" class="entry-input" name="contact_telephone" id="contact_telephone" value="{{ $member['個人電話番号']['value'] }}" size="13" maxlength="13"></dd>
             </dl>
             <dl>
               <dt><label>生年月日 <span class="notice">入力例：19900808</span></label></dt>
