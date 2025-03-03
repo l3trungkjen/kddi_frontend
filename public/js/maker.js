@@ -17,7 +17,7 @@ function showContent(appId) {
         let row = `
           <tr>
             <td>${record.機種名.value}</td>
-            <td>${record.容量.value}GB</td>
+            <td>${record.容量.value}</td>
             <td class="price">${formattedA} 円</td>
             <td class="price">${formattedB} 円</td>
             <td class="price">${formattedC} 円</td>
