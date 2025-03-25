@@ -106,7 +106,7 @@
             </dl>
             <dl>
               <dt><label>都道府県 <span class="notice">※郵便番号から自動入力</span></label></dt>
-              <dd><input type="text" class="p-region entry-input" name="contact_prefectures" id="contact_prefectures" disabled value="{{ $member['法人住所1']['value'] }}"></dd>
+              <dd><input type="text" class="p-region entry-input" name="contact_prefectures" id="contact_prefectures" disabled value="{{ $member['個人住所1']['value'] }}"></dd>
             </dl>
             <dl>
               <dt>
@@ -114,16 +114,16 @@
                 <span class="notice">※郵便番号から自動入力</span></label>
               </dt>
               <dd>
-                <input type="text" class="p-locality p-street-address entry-input" name="contact_municipalities" id="contact_municipalities" disabled value="{{ $member['法人住所2']['value'] }}">
+                <input type="text" class="p-locality p-street-address entry-input" name="contact_municipalities" id="contact_municipalities" disabled value="{{ $member['個人住所2']['value'] }}">
               </dd>
             </dl>
             <dl>
               <dt><label>番地以降</label></dt>
-              <dd><input type="text" class="p-extended-address entry-input" name="contact_street" id="contact_street" disabled value="{{ $member['法人住所3']['value'] }}"></dd>
+              <dd><input type="text" class="p-extended-address entry-input" name="contact_street" id="contact_street" disabled value="{{ $member['個人住所3']['value'] }}"></dd>
             </dl>
             <dl>
               <dt><label>建物名・フロア等</label></dt>
-              <dd><input type="text" class="entry-input" name="contact_building_name" id="contact_building_name" disabled value="{{ $member['法人住所4']['value'] }}"></dd>
+              <dd><input type="text" class="entry-input" name="contact_building_name" id="contact_building_name" disabled value="{{ $member['個人住所4']['value'] }}"></dd>
             </dl>
             <dl>
               <dt><label>電話番号<span class="required">変更可</span></label></dt>
