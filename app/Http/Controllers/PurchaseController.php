@@ -109,17 +109,17 @@ class PurchaseController extends Controller
                         $member = $data['records'][0];
                         $company_name = $member['法人名']['value'];
                         $post_code = $member['法人郵便番号']['value'];
-                        $prefectures = $member['個人住所1']['value'];
-                        $municipalities = $member['個人住所2']['value'];
-                        $street_address = $member['個人住所3']['value'];
-                        $building_name = $member['個人住所4']['value'];
+                        $prefectures = $member['法人住所1']['value'];
+                        $municipalities = $member['法人住所2']['value'];
+                        $street_address = $member['法人住所3']['value'];
+                        $building_name = $member['法人住所4']['value'];
                         $department_name = $member['法人部署名']['value'];
                         $telephone = $member['法人電話番号']['value'];
                         $contact_name = $member['個人氏名']['value'];
                     }
                 }
             }
-            // dd($request->more_address);
+
             $name = isset($contact_name) ? $contact_name : $request->contact_name;
             $data = [
                 "メールアドレス" => ["value" => isset($email) ? $email : ""],
