@@ -16,20 +16,23 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        $exceptions->render(function (MethodNotAllowedHttpException $e, Request $request) {
-            if (
-                ($request->is('entry/step-two-submit') || $request->is('purchase/step-two-submit'))
-                && $request->method() === 'GET'
-            ) {
-                return response()->view('errors.custom_error', [], 200);
-            }
-            if (
-                str_contains($e->getMessage(), 'SendGrid\Mail\Personalization') &&
-                ($request->is('entry/step-two-submit') || $request->is('purchase/step-two-submit'))
-            ) {
-                return response()->view('errors.custom_error', [], 200);
-            }
+        // $exceptions->render(function (MethodNotAllowedHttpException $e, Request $request) {
+        //     if (
+        //         ($request->is('entry/step-two-submit') || $request->is('purchase/step-two-submit'))
+        //         && $request->method() === 'GET'
+        //     ) {
+        //         return response()->view('errors.custom_error', [], 200);
+        //     }
+        //     if (
+        //         str_contains($e->getMessage(), 'SendGrid\Mail\Personalization') &&
+        //         ($request->is('entry/step-two-submit') || $request->is('purchase/step-two-submit'))
+        //     ) {
+        //         return response()->view('errors.custom_error', [], 200);
+        //     }
 
-            return null;
+        //     return null;
+        // });
+        $exceptions->render(function (Throwable $e, Request $request) {
+            return response()->view('errors.custom_error', [], 500);
         });
     })->create();
