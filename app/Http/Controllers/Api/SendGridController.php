@@ -34,7 +34,7 @@ class SendGridController extends Controller
         $email->addContent(
             "text/html", $htmlContent
         );
-        $sendgrid = new \SendGrid('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');
+        $sendgrid = new \SendGrid($this->password);
         try {
             $response = $sendgrid->send($email);
             dd($response);
