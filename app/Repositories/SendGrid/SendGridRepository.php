@@ -21,40 +21,41 @@ class SendGridRepository
 
     public function send($to_address, $to_name, $title, $type, $name = '')
     {
-        $email = new \SendGrid\Mail\Mail();
-        $email->setFrom($this->from_address, $this->from_name);
-        $email->setSubject($title);
-        $email->addTo($to_address, $to_name);
-
-        if ($type == 'forgot_password') {
-            $htmlContent = View::make('emails.forgot_password', [
-                'title' => $title,
-            ])->render();
-        } else if ($type == 'register_customer') {
-            $htmlContent = View::make('emails.register_customer', [
-                'title' => $title,
-                'name' => $name,
-            ])->render();
-        } else if ($type == 'register_purchase_success') {
-            $htmlContent = View::make('emails.register_purchase_success', [
-                'title' => $title,
-                'name' => $name,
-            ])->render();
-        } else {
-            return false;
-        }
-
-        $email->addContent("text/html", $htmlContent);
-        $sendgrid = new \SendGrid($this->password);
         try {
+            $email = new \SendGrid\Mail\Mail();
+            $email->setFrom($this->from_address, $this->from_name);
+            $email->setSubject($title);
+            $email->addTo($to_address, $to_name);
+
+            if ($type == 'forgot_password') {
+                $htmlContent = View::make('emails.forgot_password', [
+                    'title' => $title,
+                ])->render();
+            } else if ($type == 'register_customer') {
+                $htmlContent = View::make('emails.register_customer', [
+                    'title' => $title,
+                    'name' => $name,
+                ])->render();
+            } else if ($type == 'register_purchase_success') {
+                $htmlContent = View::make('emails.register_purchase_success', [
+                    'title' => $title,
+                    'name' => $name,
+                ])->render();
+            } else {
+                return false;
+            }
+
+            $email->addContent("text/html", $htmlContent);
+            $sendgrid = new \SendGrid($this->password);
             $response = $sendgrid->send($email);
-            return $response->statusCode();
+            // return $response->statusCode();
+            return true;
             // print $response->statusCode() . "\n";
             // print_r($response->headers());
             // print $response->body() . "\n";
         } catch (Exception $e) {
             // return $e->getMessage();
-            return null;
+            return false;
         }
     }
 }
