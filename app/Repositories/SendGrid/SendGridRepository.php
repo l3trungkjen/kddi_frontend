@@ -59,7 +59,7 @@ class SendGridRepository
             // return $e->getMessage();
             return false;
         } catch (\Throwable $th) {
-            return false;
+            return redirect()->route('entry.stepTwoSubmit');
         }
     }
 }
