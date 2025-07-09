@@ -17,7 +17,7 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->render(function (MethodNotAllowedHttpException $e, Request $request) {
-            if ($request->is('purchase/step-two-submit') && $request->method() === 'GET') {
+            if (($request->is('entry/step-two-submit') || $request->is('purchase/step-two-submit')) && $request->method() === 'GET') {
                 return response()->view('errors.custom_error', [], 200);
             }
 
