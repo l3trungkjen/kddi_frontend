@@ -150,6 +150,11 @@ class PurchaseController extends Controller
                 if ($email) {
                     $sendGird = new SendGridRepository();
                     $sendMail = $sendGird->send($email, $email, "買取申込完了", 'register_purchase_success', $name);
+                    if ($sendMail) {
+                        return redirect()->route('entry.stepThree');
+                    } else {
+                        return response()->view('errors.custom_error', [], 500);
+                    }
                 }
                 return redirect()->route('purchase.stepThree');
             } else {
