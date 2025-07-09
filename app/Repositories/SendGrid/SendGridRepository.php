@@ -58,6 +58,8 @@ class SendGridRepository
         } catch (Exception $e) {
             // return $e->getMessage();
             return false;
+        } catch (\Throwable $th) {
+            return false;
         }
     }
 }
