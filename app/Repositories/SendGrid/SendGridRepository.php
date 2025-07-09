@@ -53,7 +53,8 @@ class SendGridRepository
             // print_r($response->headers());
             // print $response->body() . "\n";
         } catch (Exception $e) {
-            return $e->getMessage();
+            // return $e->getMessage();
+            return null;
         }
     }
 }
