@@ -151,6 +151,7 @@ class EntryController extends Controller
                 return redirect()->route('entry.stepTwo');
             }
         } catch (Exception $e) {
+            dd(($e->getMessage()));
             return redirect()->back()
                 ->withErrors(['step_two_error' => '[生年月日] 形式が正しくありません。']);
         }
