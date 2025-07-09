@@ -145,7 +145,11 @@ class EntryController extends Controller
             if (isset($entry['id'])) {
                 $sendGird = new SendGridRepository();
                 $sendMail = $sendGird->send($request->email, $request->email, "お客様情報登録完了", 'register_customer', $request->contact_name);
-                return redirect()->route('entry.stepThree');
+                if ($sendMail) {
+                    return redirect()->route('entry.stepThree');
+                } else {
+                    return response()->view('errors.custom_error', [], 500);
+                }
             } else {
                 session()->flash('step_one_data', $request->all());
                 return redirect()->route('entry.stepTwo');
