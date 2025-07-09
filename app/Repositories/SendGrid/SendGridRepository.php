@@ -22,6 +22,7 @@ class SendGridRepository
     public function send($to_address, $to_name, $title, $type, $name = '')
     {
         try {
+            dd('xxxxx');
             $email = new \SendGrid\Mail\Mail();
             $email->setFrom($this->from_address, $this->from_name);
             $email->setSubject($title);
