@@ -148,7 +148,7 @@ class EntryController extends Controller
                 if ($sendMail) {
                     return redirect()->route('entry.stepThree');
                 } else {
-                    return response()->view('errors.custom_error', [], 500);
+                    return redirect()->route('entry.stepTwoSubmit');
                 }
             } else {
                 session()->flash('step_one_data', $request->all());
