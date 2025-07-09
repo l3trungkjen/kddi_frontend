@@ -22,6 +22,7 @@ class SendGridRepository
     public function send($to_address, $to_name, $title, $type, $name = '')
     {
         try {
+            return false;
             $email = new \SendGrid\Mail\Mail();
             dd('1111');
             $email->setFrom($this->from_address, $this->from_name);
@@ -59,7 +60,7 @@ class SendGridRepository
             // return $e->getMessage();
             return false;
         } catch (\Throwable $th) {
-            return redirect()->route('entry.stepTwoSubmit');
+            return false;
         }
     }
 }
