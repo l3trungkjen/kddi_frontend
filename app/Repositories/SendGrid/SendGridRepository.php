@@ -47,6 +47,7 @@ class SendGridRepository
 
             $email->addContent("text/html", $htmlContent);
             $sendgrid = new \SendGrid($this->password);
+            dd($sendgrid);
             $response = $sendgrid->send($email);
             // return $response->statusCode();
             return true;
