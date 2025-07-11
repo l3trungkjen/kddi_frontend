@@ -22,9 +22,7 @@ class SendGridRepository
     public function send($to_address, $to_name, $title, $type, $name = '')
     {
         try {
-            return false;
             $email = new \SendGrid\Mail\Mail();
-            dd('1111');
             $email->setFrom($this->from_address, $this->from_name);
             $email->setSubject($title);
             $email->addTo($to_address, $to_name);
@@ -49,7 +47,6 @@ class SendGridRepository
 
             $email->addContent("text/html", $htmlContent);
             $sendgrid = new \SendGrid($this->password);
-            dd($sendgrid);
             $response = $sendgrid->send($email);
             // return $response->statusCode();
             return true;
