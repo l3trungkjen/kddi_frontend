@@ -32,7 +32,7 @@ return Application::configure(basePath: dirname(__DIR__))
 
         //     return null;
         // });
-        // $exceptions->render(function (Throwable $e, Request $request) {
-        //     return response()->view('errors.custom_error', [], 500);
-        // });
+        $exceptions->render(function (Throwable $e, Request $request) {
+            return response()->view('errors.custom_error', [], 500);
+        });
     })->create();
